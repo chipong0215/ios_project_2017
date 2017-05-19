@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1700DDDBB48A115BA4658C /* Pods_ios_wanted_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38496AC04B905B46A06253F /* Pods_ios_wanted_project.framework */; };
+		6DFAA5D51ECED2F100817806 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DFAA5D41ECED2F100817806 /* GoogleService-Info.plist */; };
 		F9BC5BA01EB07A83004769DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC5B9F1EB07A83004769DC /* AppDelegate.swift */; };
 		F9BC5BA21EB07A83004769DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC5BA11EB07A83004769DC /* ViewController.swift */; };
 		F9BC5BA51EB07A83004769DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BC5BA31EB07A83004769DC /* Main.storyboard */; };
@@ -15,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6DFAA5D41ECED2F100817806 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9466B60930BE5F1EEF27F54E /* Pods-ios_wanted_project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_wanted_project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios_wanted_project/Pods-ios_wanted_project.debug.xcconfig"; sourceTree = "<group>"; };
+		9BF940C84CDC9DB89D2C1735 /* Pods-ios_wanted_project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_wanted_project.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios_wanted_project/Pods-ios_wanted_project.release.xcconfig"; sourceTree = "<group>"; };
+		E38496AC04B905B46A06253F /* Pods_ios_wanted_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_wanted_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9BC5B9C1EB07A83004769DC /* ios_wanted_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_wanted_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9BC5B9F1EB07A83004769DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9BC5BA11EB07A83004769DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A1700DDDBB48A115BA4658C /* Pods_ios_wanted_project.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		647C014E4AE7008C3F005EA5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9466B60930BE5F1EEF27F54E /* Pods-ios_wanted_project.debug.xcconfig */,
+				9BF940C84CDC9DB89D2C1735 /* Pods-ios_wanted_project.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4AEF5F37ED31D63CAF949A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E38496AC04B905B46A06253F /* Pods_ios_wanted_project.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F9BC5B931EB07A83004769DC = {
 			isa = PBXGroup;
 			children = (
 				F9BC5B9E1EB07A83004769DC /* ios_wanted_project */,
 				F9BC5B9D1EB07A83004769DC /* Products */,
+				647C014E4AE7008C3F005EA5 /* Pods */,
+				A4AEF5F37ED31D63CAF949A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +86,9 @@
 				F9BC5BA61EB07A83004769DC /* Assets.xcassets */,
 				F9BC5BA81EB07A83004769DC /* LaunchScreen.storyboard */,
 				F9BC5BAB1EB07A83004769DC /* Info.plist */,
+				6DFAA5D41ECED2F100817806 /* GoogleService-Info.plist */,
 			);
-			path = "ios_wanted_project";
+			path = ios_wanted_project;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,16 +98,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9BC5BAE1EB07A83004769DC /* Build configuration list for PBXNativeTarget "ios_wanted_project" */;
 			buildPhases = (
+				E81B00BD4DEE6E82721B463A /* [CP] Check Pods Manifest.lock */,
 				F9BC5B981EB07A83004769DC /* Sources */,
 				F9BC5B991EB07A83004769DC /* Frameworks */,
 				F9BC5B9A1EB07A83004769DC /* Resources */,
+				74BD5715BC253B59BD0823EF /* [CP] Embed Pods Frameworks */,
+				5BA443B023E1999B0CDCE45A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ios_wanted_project;
-			productName = "ios_wanted_project";
+			productName = ios_wanted_project;
 			productReference = F9BC5B9C1EB07A83004769DC /* ios_wanted_project.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -125,12 +155,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9BC5BAA1EB07A83004769DC /* LaunchScreen.storyboard in Resources */,
+				6DFAA5D51ECED2F100817806 /* GoogleService-Info.plist in Resources */,
 				F9BC5BA71EB07A83004769DC /* Assets.xcassets in Resources */,
 				F9BC5BA51EB07A83004769DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BA443B023E1999B0CDCE45A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios_wanted_project/Pods-ios_wanted_project-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74BD5715BC253B59BD0823EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios_wanted_project/Pods-ios_wanted_project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E81B00BD4DEE6E82721B463A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F9BC5B981EB07A83004769DC /* Sources */ = {
@@ -259,10 +338,11 @@
 		};
 		F9BC5BAF1EB07A83004769DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9466B60930BE5F1EEF27F54E /* Pods-ios_wanted_project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4GQVVQZC6L;
-				INFOPLIST_FILE = "ios_wanted_project/Info.plist";
+				INFOPLIST_FILE = ios_wanted_project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tw.nccu.pong.lai-dog";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,10 +352,11 @@
 		};
 		F9BC5BB01EB07A83004769DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF940C84CDC9DB89D2C1735 /* Pods-ios_wanted_project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4GQVVQZC6L;
-				INFOPLIST_FILE = "ios_wanted_project/Info.plist";
+				INFOPLIST_FILE = ios_wanted_project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tw.nccu.pong.lai-dog";
 				PRODUCT_NAME = "$(TARGET_NAME)";
