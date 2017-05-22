@@ -13,5 +13,8 @@ import FirebaseAuth
 
 
 class LoginViewController: UIViewController {
+    @IBAction func ResetBtnClicked(_ sender: UIButton) {
+        
+    }
     
 }

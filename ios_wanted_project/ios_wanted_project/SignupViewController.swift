@@ -19,8 +19,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    @IBAction func createAccount(_ sender: Any) {
+    
+    @IBAction func createAccBtnClicked(_ sender: UIButton) {
         
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
             self.showMsg("請輸入email和密碼")
@@ -40,6 +40,7 @@ class SignUpViewController: UIViewController {
             self.showMsg("已登入")
         }
     }
+        
     func showMsg(_ message: String) {
         let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
         
