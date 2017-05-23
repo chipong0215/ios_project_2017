@@ -18,6 +18,7 @@
 		F9BC5BA51EB07A83004769DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BC5BA31EB07A83004769DC /* Main.storyboard */; };
 		F9BC5BA71EB07A83004769DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9BC5BA61EB07A83004769DC /* Assets.xcassets */; };
 		F9BC5BAA1EB07A83004769DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BC5BA81EB07A83004769DC /* LaunchScreen.storyboard */; };
+		F9DA451E1ED430E000AA6487 /* PostShownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F9BC5BA61EB07A83004769DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9BC5BA91EB07A83004769DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9BC5BAB1EB07A83004769DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostShownViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,12 +95,13 @@
 				6D2A556B1ED2A8770037F89C /* ResetPasswordViewController.swift */,
 				6D2A556D1ED2A8A00037F89C /* SignupViewController.swift */,
 				F9BC5BA11EB07A83004769DC /* ViewController.swift */,
+				F9A9C61E1ED3359000E6C8A7 /* PostListViewController.swift */,
+				F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */,
 				F9BC5BA31EB07A83004769DC /* Main.storyboard */,
 				F9BC5BA61EB07A83004769DC /* Assets.xcassets */,
 				F9BC5BA81EB07A83004769DC /* LaunchScreen.storyboard */,
 				F9BC5BAB1EB07A83004769DC /* Info.plist */,
 				6DFAA5D41ECED2F100817806 /* GoogleService-Info.plist */,
-				F9A9C61E1ED3359000E6C8A7 /* PostListViewController.swift */,
 			);
 			path = ios_wanted_project;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D2A556A1ED2A82C0037F89C /* LoginViewController.swift in Sources */,
+				F9DA451E1ED430E000AA6487 /* PostShownViewController.swift in Sources */,
 				6D2A556C1ED2A8770037F89C /* ResetPasswordViewController.swift in Sources */,
 				6D2A556E1ED2A8A00037F89C /* SignupViewController.swift in Sources */,
 				F9BC5BA21EB07A83004769DC /* ViewController.swift in Sources */,

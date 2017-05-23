@@ -9,7 +9,9 @@
 import UIKit
 
 class PostListViewController: UITableViewController {
-
+    static var titleName : String = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,10 +44,22 @@ class PostListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
 
         let label = cell.viewWithTag(1) as! UILabel
-        label.text = "haah"
-
+        label.text = "13 reasons why"
+        PostListViewController.titleName = label.text!
+        //titleList.title = label.text
+        
         return cell
     }
+    
+    /*
+    static func noteTitleList() -> [String] {
+        // let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        var bunch_of_titles = [String]()
+        bunch_of_titles[0] = titleName[0]
+        
+        return bunch_of_titles[0]
+    }
+    */
     
 
     /*
