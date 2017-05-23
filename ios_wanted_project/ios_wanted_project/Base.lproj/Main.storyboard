@@ -162,7 +162,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginBtn:" destination="2Lo-fw-2DB" eventType="touchUpInside" id="bGj-cx-vWU"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="lIK-Tt-XmZ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFG-II-7BA">
@@ -505,7 +504,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XXJ-C0-pbA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tyu-8E-QiV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tyu-8E-QiV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -520,12 +519,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7XR-1D-96v"/>
-<<<<<<< HEAD
-        <segue reference="3Eb-2p-FCK"/>
-=======
-        <segue reference="lIK-Tt-XmZ"/>
         <segue reference="Zp9-p7-4OT"/>
->>>>>>> aed5b16b1d6a56850c36d85ea12ceecc29ba265b
+        <segue reference="7XR-1D-96v"/>
     </inferredMetricsTieBreakers>
 </document>

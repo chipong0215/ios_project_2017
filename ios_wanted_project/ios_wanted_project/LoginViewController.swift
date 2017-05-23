@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
             self.showMsg("請輸入email和密碼")
             return
         }
-        else if (password?.characters.count)! < 8 {
+        else if (password?.characters.count)! < 6 {
             self.showMsg("密碼長度要大於6")
         }
         
@@ -42,7 +42,8 @@ class LoginViewController: UIViewController {
             self.showMsg("登入成功")
         }
     }
-        
+    
+
     
     @IBAction func ResetBtnClicked(_ sender: UIButton) {
         
