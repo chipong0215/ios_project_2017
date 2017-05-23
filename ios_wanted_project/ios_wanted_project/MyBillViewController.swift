@@ -1,21 +1,18 @@
 //
-//  PostListViewController.swift
+//  MyBillViewController.swift
 //  ios_wanted_project
 //
-//  Created by Pong on 2017/5/22.
+//  Created by Pong on 2017/5/23.
 //  Copyright © 2017年 Pong. All rights reserved.
 //
 
 import UIKit
 
-class PostListViewController: UITableViewController {
-    static var titleName : String = ""
-    let category = MainPageViewController.btnName
-    
+class MyBillViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = category
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,35 +34,17 @@ class PostListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if category == "清潔"  {
-            return 2
-        }
-        else {
-            return 4
-        }
+        return 2
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BillCell", for: indexPath)
 
-        let label = cell.viewWithTag(1) as! UILabel
-        label.text = category
-        PostListViewController.titleName = category
-        //titleList.title = label.text
-        
+        // Configure the cell...
+
         return cell
     }
-    
-    /*
-    static func noteTitleList() -> [String] {
-        // let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        var bunch_of_titles = [String]()
-        bunch_of_titles[0] = titleName[0]
-        
-        return bunch_of_titles[0]
-    }
-    */
     
 
     /*
