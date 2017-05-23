@@ -15,24 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ios_wanted_project/SignupViewController.swift"
-            timestampString = "517130104.349714"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "createAccount(_:)"
-            landmarkType = "7">
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -63,18 +47,18 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "createAccount(_:)"
+            landmarkName = "createAccBtnClicked(_:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ios_wanted_project.SignUpViewController.createAccount (Any) -&gt; ()"
+                  symbolName = "ios_wanted_project.SignUpViewController.createAccBtnClicked (__ObjC.UIButton) -&gt; ()"
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/SignupViewController.swift"
-                  timestampString = "517130761.636246"
+                  timestampString = "517226774.453577"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -85,11 +69,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ios_wanted_project.SignUpViewController.(createAccount (Any) -&gt; ()).(closure #1)"
+                  symbolName = "ios_wanted_project.SignUpViewController.(createAccBtnClicked (__ObjC.UIButton) -&gt; ()).(closure #1)"
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/SignupViewController.swift"
-                  timestampString = "517130761.638897"
+                  timestampString = "517226774.457708"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "34"
@@ -102,17 +86,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios_wanted_project/SignupViewController.swift"
-            timestampString = "517130699.678278"
+            timestampString = "517221874.446696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "createAccount(_:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "createAccBtnClicked(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios_wanted_project/SignupViewController.swift"
+            timestampString = "517223746.370259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "createAccBtnClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios_wanted_project/ResetPasswordViewController.swift"
+            timestampString = "517226412.55728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "resetPassword(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_wanted_project.ResetPasswordViewController.resetPassword (Any) -&gt; ()"
+                  moduleName = "ios_wanted_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
+                  timestampString = "517226774.464656"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "586">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ios_wanted_project.ResetPasswordViewController.(resetPassword (Any) -&gt; ()).(closure #1)"
+                  moduleName = "ios_wanted_project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
+                  timestampString = "517226774.468126"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
