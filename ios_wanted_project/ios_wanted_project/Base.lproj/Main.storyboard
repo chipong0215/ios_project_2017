@@ -100,7 +100,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1S-FZ-nVC">
                                 <rect key="frame" x="133" y="550" width="107" height="30"/>
@@ -177,7 +177,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-lH-pC5">
                                 <rect key="frame" x="117" y="617" width="133" height="30"/>
@@ -192,6 +192,9 @@
                                 <rect key="frame" x="152" y="549" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Signup"/>
+                                <connections>
+                                    <segue destination="m7t-fJ-P9L" kind="show" id="2Fd-K4-U4v"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-gQ-gRm">
                                 <rect key="frame" x="52" y="223" width="83" height="30"/>
@@ -476,7 +479,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XXJ-C0-pbA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tyu-8E-QiV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tyu-8E-QiV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -492,6 +495,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="7XR-1D-96v"/>
-        <segue reference="lIK-Tt-XmZ"/>
+        <segue reference="3Eb-2p-FCK"/>
     </inferredMetricsTieBreakers>
 </document>

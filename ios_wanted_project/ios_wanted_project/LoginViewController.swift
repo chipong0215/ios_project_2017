@@ -18,12 +18,22 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
     @IBAction func loginBtn(_ sender: Any) {
-        if self.emailTextField.text == "" || self.passwordTextField.text == "" {
+        
+        let email = self.emailTextField.text
+        
+        let password = self.passwordTextField.text
+        
+        if email == "" || password == "" {
             self.showMsg("請輸入email和密碼")
             return
         }
-        Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
+        else if (password?.characters.count)! < 8 {
+            self.showMsg("密碼長度要大於6")
+        }
+        
+        Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
             // 登入失敗
             if error != nil {
                 self.showMsg((error?.localizedDescription)!)
@@ -31,8 +41,8 @@ class LoginViewController: UIViewController {
             // 登入成功並顯示已登入
             self.showMsg("登入成功")
         }
-
     }
+        
     
     @IBAction func ResetBtnClicked(_ sender: UIButton) {
         

@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios_wanted_project/SignupViewController.swift"
-            timestampString = "517130417.323905"
+            timestampString = "517230665.749411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "createAccBtnClicked(_:)"
             landmarkType = "7">
             <Locations>
@@ -58,12 +58,12 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/SignupViewController.swift"
-                  timestampString = "517226774.453577"
+                  timestampString = "517230666.862699"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "1208">
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "1905">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,11 +73,11 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/SignupViewController.swift"
-                  timestampString = "517226774.457708"
+                  timestampString = "517230666.865195"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
                   offsetFromSymbolStart = "23">
                </Location>
             </Locations>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ios_wanted_project/SignupViewController.swift"
-            timestampString = "517221874.446696"
+            timestampString = "517230665.749411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "createAccBtnClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,7 +138,7 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
-                  timestampString = "517226774.464656"
+                  timestampString = "517230666.871432"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -153,7 +153,7 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
-                  timestampString = "517226774.468126"
+                  timestampString = "517230666.874149"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "26"
@@ -161,6 +161,38 @@
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios_wanted_project/LoginViewController.swift"
+            timestampString = "517232454.146432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "loginBtn(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ios_wanted_project/LoginViewController.swift"
+            timestampString = "517232577.64924"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "loginBtn(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
