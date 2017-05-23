@@ -10,11 +10,12 @@ import UIKit
 
 class PostListViewController: UITableViewController {
     static var titleName : String = ""
-    
+    let category = MainPageViewController.btnName
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = category
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,7 +37,12 @@ class PostListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        if category == "清潔"  {
+            return 2
+        }
+        else {
+            return 4
+        }
     }
 
     
@@ -44,8 +50,8 @@ class PostListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath)
 
         let label = cell.viewWithTag(1) as! UILabel
-        label.text = "13 reasons why"
-        PostListViewController.titleName = label.text!
+        label.text = category
+        PostListViewController.titleName = category
         //titleList.title = label.text
         
         return cell
