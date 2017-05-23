@@ -40,7 +40,8 @@ class SignUpViewController: UIViewController {
             self.showMsg("已登入")
         }
     }
-        
+    
+    
     func showMsg(_ message: String) {
         let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
         
