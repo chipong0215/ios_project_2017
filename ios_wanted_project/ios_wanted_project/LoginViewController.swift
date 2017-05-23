@@ -20,16 +20,16 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtn(_ sender: Any) {
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
-            self.showMsg("請輸入email和密碼")
+            Functions.showMsg("請輸入email和密碼", viewController: self)
             return
         }
         Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
             // 登入失敗
             if error != nil {
-                self.showMsg((error?.localizedDescription)!)
+                Functions.showMsg((error?.localizedDescription)!, viewController: self)
             }
             // 登入成功並顯示已登入
-            self.showMsg("登入成功")
+            Functions.showMsg("登入成功", viewController: self)
         }
 
     }
@@ -37,15 +37,4 @@ class LoginViewController: UIViewController {
     @IBAction func ResetBtnClicked(_ sender: UIButton) {
         
     }
-    
-    func showMsg(_ message: String) {
-        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
-        
-        let cancel = UIAlertAction(title: "確定", style: .default, handler: nil)
-        
-        alertController.addAction(cancel)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-
 }

@@ -21,6 +21,7 @@
 		F9DA451E1ED430E000AA6487 /* PostShownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */; };
 		F9DA45201ED4489100AA6487 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA451F1ED4489100AA6487 /* MainPageViewController.swift */; };
 		F9DA45221ED45ADF00AA6487 /* MyBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA45211ED45ADF00AA6487 /* MyBillViewController.swift */; };
+		F9DA45241ED4AE5500AA6487 /* FunctionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA45231ED4AE5500AA6487 /* FunctionContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostShownViewController.swift; sourceTree = "<group>"; };
 		F9DA451F1ED4489100AA6487 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		F9DA45211ED45ADF00AA6487 /* MyBillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBillViewController.swift; sourceTree = "<group>"; };
+		F9DA45231ED4AE5500AA6487 /* FunctionContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				F9A9C61E1ED3359000E6C8A7 /* PostListViewController.swift */,
 				F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */,
 				F9DA45211ED45ADF00AA6487 /* MyBillViewController.swift */,
+				F9DA45231ED4AE5500AA6487 /* FunctionContainer.swift */,
 				F9BC5BA31EB07A83004769DC /* Main.storyboard */,
 				F9BC5BA61EB07A83004769DC /* Assets.xcassets */,
 				F9BC5BA81EB07A83004769DC /* LaunchScreen.storyboard */,
@@ -244,6 +247,7 @@
 				6D2A556E1ED2A8A00037F89C /* SignupViewController.swift in Sources */,
 				F9BC5BA21EB07A83004769DC /* ViewController.swift in Sources */,
 				F9DA45221ED45ADF00AA6487 /* MyBillViewController.swift in Sources */,
+				F9DA45241ED4AE5500AA6487 /* FunctionContainer.swift in Sources */,
 				F9A9C61F1ED3359000E6C8A7 /* PostListViewController.swift in Sources */,
 				F9BC5BA01EB07A83004769DC /* AppDelegate.swift in Sources */,
 			);

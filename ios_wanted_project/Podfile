@@ -8,6 +8,7 @@ pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'GoogleSignIn'
 pod 'Firebase/Core'
+pod 'Cosmos', '~> 9.0'
   # Pods for ios_wanted_project
 
 end

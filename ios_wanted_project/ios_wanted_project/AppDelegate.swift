@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import Cosmos
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate /*GIDSignInDelegate*/ {
