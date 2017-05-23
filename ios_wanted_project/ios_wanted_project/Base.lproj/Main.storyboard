@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="2Lo-fw-2DB" kind="show" id="C7c-bD-9ye"/>
+                                    <segue destination="2Lo-fw-2DB" kind="show" identifier="LoginFromResetSegue" id="C7c-bD-9ye"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2m-wV-xOa">
@@ -107,7 +107,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="2Lo-fw-2DB" kind="show" id="7XR-1D-96v"/>
+                                    <segue destination="2Lo-fw-2DB" kind="show" identifier="LoginFromSignupSegue" id="7XR-1D-96v"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ib6-nM-qBG">
@@ -162,7 +162,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginBtn:" destination="2Lo-fw-2DB" eventType="touchUpInside" id="bGj-cx-vWU"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="lIK-Tt-XmZ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="LoginMainSegue" id="lIK-Tt-XmZ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFG-II-7BA">
@@ -185,13 +185,16 @@
                                 <state key="normal" title="Reset Password"/>
                                 <connections>
                                     <action selector="ResetBtnClicked:" destination="2Lo-fw-2DB" eventType="touchUpInside" id="HnT-Cl-9RN"/>
-                                    <segue destination="00p-2B-MIY" kind="show" id="l7z-vC-hxd"/>
+                                    <segue destination="00p-2B-MIY" kind="show" identifier="ResetFromLoginSegue" id="l7z-vC-hxd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpc-ck-3rH">
                                 <rect key="frame" x="152" y="549" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Signup"/>
+                                <connections>
+                                    <segue destination="m7t-fJ-P9L" kind="show" identifier="SignUpSegue" id="Hed-6S-W8a"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-gQ-gRm">
                                 <rect key="frame" x="52" y="223" width="83" height="30"/>
@@ -235,6 +238,50 @@
             </objects>
             <point key="canvasLocation" x="3098" y="-589"/>
         </scene>
+        <!--My Bill View Controller-->
+        <scene sceneID="4hC-bL-PFN">
+            <objects>
+                <tableViewController id="cUa-bX-EfG" customClass="MyBillViewController" customModule="ios_wanted_project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ilb-Bm-Wjp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BillCell" textLabel="1yv-s6-2We" detailTextLabel="HG8-Pt-tMH" style="IBUITableViewCellStyleValue1" id="d1c-Az-UyQ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d1c-Az-UyQ" id="ThM-5q-XlB">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1yv-s6-2We">
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HG8-Pt-tMH">
+                                            <rect key="frame" x="296" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cUa-bX-EfG" id="T4A-ox-dVd"/>
+                            <outlet property="delegate" destination="cUa-bX-EfG" id="urw-ht-JMd"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ah-7M-1qe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1778" y="158"/>
+        </scene>
         <!--Main Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -253,7 +300,7 @@
                                 <state key="normal" title="清潔"/>
                                 <connections>
                                     <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Uh-2b-ot6"/>
-                                    <segue destination="BvM-6i-oAh" kind="show" id="Zp9-p7-4OT"/>
+                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1001" id="Zp9-p7-4OT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gu-7a-aoO">
@@ -272,7 +319,7 @@
                                 <state key="normal" title="托管"/>
                                 <connections>
                                     <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qDY-Hn-SE7"/>
-                                    <segue destination="BvM-6i-oAh" kind="show" id="7kO-be-MxY"/>
+                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1003" id="7kO-be-MxY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1005" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPA-f0-AiT">
@@ -286,13 +333,16 @@
                                 <state key="normal" title="維修"/>
                                 <connections>
                                     <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvU-Ne-5Im"/>
-                                    <segue destination="BvM-6i-oAh" kind="show" id="lIw-VR-EQN"/>
+                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1002" id="lIw-VR-EQN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MsS-VE-MG1">
                                 <rect key="frame" x="176" y="607" width="99" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="MY BILL"/>
+                                <connections>
+                                    <segue destination="cUa-bX-EfG" kind="show" identifier="ToMyBillSegue" id="6QB-0g-EyE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1u-1x-2HS">
                                 <rect key="frame" x="0.0" y="607" width="81" height="60"/>
@@ -372,7 +422,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="3Cx-dk-tZm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" id="3Cx-dk-tZm">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Cx-dk-tZm" id="NkX-R2-OIO">
@@ -389,7 +439,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="yHS-N3-Kia" kind="show" identifier="ViewPost" id="tfM-l2-9Cn"/>
+                                    <segue destination="yHS-N3-Kia" kind="show" identifier="ViewPostSegue" id="tfM-l2-9Cn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -401,7 +451,7 @@
                     <navigationItem key="navigationItem" title="Posts" id="vP3-3t-RCd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="c0o-kd-sMo">
                             <connections>
-                                <segue destination="BaZ-dR-j99" kind="show" identifier="CreatePost" id="Xqs-nk-3W5"/>
+                                <segue destination="BaZ-dR-j99" kind="show" identifier="CreatePostSegue" id="Xqs-nk-3W5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -519,6 +569,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="7XR-1D-96v"/>
         <segue reference="lIK-Tt-XmZ"/>
-        <segue reference="Zp9-p7-4OT"/>
+        <segue reference="lIw-VR-EQN"/>
     </inferredMetricsTieBreakers>
 </document>
