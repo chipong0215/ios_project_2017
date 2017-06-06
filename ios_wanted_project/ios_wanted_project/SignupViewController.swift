@@ -22,9 +22,16 @@ class SignUpViewController: UIViewController {
     
     @IBAction func createAccBtnClicked(_ sender: UIButton) {
         
-        if self.emailTextField.text == "" || self.passwordTextField.text == "" {
+        let email = self.emailTextField.text
+        
+        let password = self.passwordTextField.text
+        
+        if email == "" || password == "" {
             self.showMsg("請輸入email和密碼")
             return
+        }
+        else if (password?.characters.count)! < 6 {
+            self.showMsg("密碼長度要大於6")
         }
         
         // 建立帳號

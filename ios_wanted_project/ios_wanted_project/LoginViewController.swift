@@ -18,20 +18,32 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func loginBtn(_ sender: Any) {
+    @IBAction func loginButton(_ sender: Any) {
+        
+        let email = self.emailTextField.text
+        
+        let password = self.passwordTextField.text
+        
+        
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
             Functions.showMsg("請輸入email和密碼", viewController: self)
             return
         }
-        Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
+        else if (password?.characters.count)! < 6 {
+            Functions.showMsg("密碼長度要大於6", viewController: self)
+        }
+        
+        Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
             // 登入失敗
             if error != nil {
                 Functions.showMsg((error?.localizedDescription)!, viewController: self)
             }
-            // 登入成功並顯示已登入
-            Functions.showMsg("登入成功", viewController: self)
+                // 登入成功並顯示已登入
+            else{
+                self.performSegue(withIdentifier: "LoginMainSegue", sender: nil)
+                Functions.showMsg("Welcome Back ", viewController: self)
+            }
         }
-
     }
     
     @IBAction func ResetBtnClicked(_ sender: UIButton) {
