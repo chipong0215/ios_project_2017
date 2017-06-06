@@ -39,9 +39,6 @@
                                 <rect key="frame" x="292" y="617" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="2Lo-fw-2DB" kind="show" identifier="LoginFromResetSegue" id="C7c-bD-9ye"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvE-Bk-1u2">
                                 <rect key="frame" x="117" y="396" width="133" height="30"/>
@@ -128,7 +125,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="2Lo-fw-2DB" kind="show" identifier="LoginFromSignupSegue" id="7XR-1D-96v"/>
+                                    <segue destination="2Lo-fw-2DB" kind="show" id="0zd-Ko-D57"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -221,8 +218,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="loginBtn:" destination="2Lo-fw-2DB" eventType="touchUpInside" id="bGj-cx-vWU"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="LoginMainSegue" id="lIK-Tt-XmZ"/>
+                                    <action selector="loginButton:" destination="2Lo-fw-2DB" eventType="touchUpInside" id="gRU-fu-LkC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -232,6 +228,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="cFG-II-7BA" id="PcS-Rs-pJe"/>
                         <outlet property="passwordTextField" destination="Y6F-Rd-jeJ" id="8nX-Rq-Pdl"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="LoginMainSegue" id="c5e-Pf-BsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7h-Hu-fSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,7 +594,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XXJ-C0-pbA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tyu-8E-QiV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tyu-8E-QiV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -612,8 +609,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="0zd-Ko-D57"/>
+        <segue reference="c5e-Pf-BsC"/>
         <segue reference="lIw-VR-EQN"/>
-        <segue reference="lIK-Tt-XmZ"/>
-        <segue reference="C7c-bD-9ye"/>
     </inferredMetricsTieBreakers>
 </document>
