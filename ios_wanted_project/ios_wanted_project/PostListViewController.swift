@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import FirebaseDatabase
 
 class PostListViewController: UITableViewController {
     static var titleName : String = ""
@@ -27,7 +27,7 @@ class PostListViewController: UITableViewController {
             let value1 = snapshot.value as? NSDictionary
             let category = value1?["Category"] as? String
             //let user = User.init(username: username)
-            print(category)
+            print(category!)
             
             // ...
         }) { (error) in
