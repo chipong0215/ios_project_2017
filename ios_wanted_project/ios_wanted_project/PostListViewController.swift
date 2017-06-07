@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class PostListViewController: UITableViewController {
     static var titleName : String = ""
@@ -16,6 +18,22 @@ class PostListViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationItem.title = category
         
+        // database access test
+        var ref : DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("Request").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value1 = snapshot.value as? NSDictionary
+            let category = value1?["Category"] as? String
+            //let user = User.init(username: username)
+            print(category)
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

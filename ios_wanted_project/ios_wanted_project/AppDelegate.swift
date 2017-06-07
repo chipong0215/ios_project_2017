@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate /*GIDSignInDelegate*/ {
         // [START firebase_configure]
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
-            return true
+        
+        return true
     }
  
 }

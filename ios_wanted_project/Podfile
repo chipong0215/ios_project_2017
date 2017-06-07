@@ -6,6 +6,7 @@ target 'ios_wanted_project' do
   use_frameworks!
 pod 'Firebase'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
 pod 'GoogleSignIn'
 pod 'Firebase/Core'
 pod 'Cosmos', '~> 9.0'
