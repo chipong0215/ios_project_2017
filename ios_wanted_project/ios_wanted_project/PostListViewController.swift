@@ -27,7 +27,7 @@ class PostListViewController: UITableViewController {
             let value1 = snapshot.value as? NSDictionary
             let category = value1?["Category"] as? String
             //let user = User.init(username: username)
-            print(category!)
+            print(category)
             
             // ...
         }) { (error) in
@@ -75,60 +75,72 @@ class PostListViewController: UITableViewController {
         return cell
     }
     
-    /*
-    static func noteTitleList() -> [String] {
-        // let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        var bunch_of_titles = [String]()
-        bunch_of_titles[0] = titleName[0]
+    //Write Data Trial
+    struct GroceryItem {
         
-        return bunch_of_titles[0]
+        let key: String
+        let name: String
+        let ref: DatabaseReference?
+        var completed: Bool
+        
+        init(name: String, completed: Bool, key: String = "") {
+            self.key = key
+            self.name = name
+            self.completed = completed
+            self.ref = nil
+        }
+        
+        init(snapshot: DataSnapshot) {
+            key = snapshot.key
+            let snapshotValue = snapshot.value as! [String: AnyObject]
+            name = snapshotValue["name"] as! String
+            completed = snapshotValue["completed"] as! Bool
+            ref = snapshot.ref
+        }
+        
+        func toAnyObject() -> Any {
+            return [
+                "name": name,
+                "completed": completed
+            ]
+        }
+        
     }
-    */
+
+    @IBAction func addButton(_ sender: AnyObject) {
+        var ref : DatabaseReference!
+        ref = Database.database().reference()
+        
+        let alert = UIAlertController(title: "Grocery Item",
+                                      message: "Add an Item",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) { _ in
+                                        // 1
+                                        guard let textField = alert.textFields?.first,
+                                            let text = textField.text else { return }
+                                        
+                                        // 2
+                                        let groceryItem = GroceryItem(name: text,
+                                                                      completed: false)
+                                        // 3
+                                        let groceryItemRef = ref.child(text.lowercased())
+                                        
+                                        // 4
+                                        groceryItemRef.setValue(groceryItem.toAnyObject())
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+        
+        alert.addTextField()
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
