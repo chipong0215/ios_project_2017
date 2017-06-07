@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import FirebaseDatabase
 
 class PostListViewController: UITableViewController {
     static var titleName : String = ""
