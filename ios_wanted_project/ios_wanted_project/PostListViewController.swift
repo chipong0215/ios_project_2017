@@ -142,5 +142,5 @@ class PostListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
+
 }
