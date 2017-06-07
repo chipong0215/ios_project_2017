@@ -14,7 +14,8 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        navigationItem.hidesBackButton = true
+        //self.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
 
