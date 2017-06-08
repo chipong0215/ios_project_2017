@@ -75,59 +75,30 @@ class PostListViewController: UITableViewController {
         return cell
     }
     
-    //Write Data Trial
-    struct GroceryItem {
-        
-        let key: String
-        let name: String
-        let ref: DatabaseReference?
-        var completed: Bool
-        
-        init(name: String, completed: Bool, key: String = "") {
-            self.key = key
-            self.name = name
-            self.completed = completed
-            self.ref = nil
-        }
-        
-        init(snapshot: DataSnapshot) {
-            key = snapshot.key
-            let snapshotValue = snapshot.value as! [String: AnyObject]
-            name = snapshotValue["name"] as! String
-            completed = snapshotValue["completed"] as! Bool
-            ref = snapshot.ref
-        }
-        
-        func toAnyObject() -> Any {
-            return [
-                "name": name,
-                "completed": completed
-            ]
-        }
-        
-    }
-
+       //Write Data Trial
+    
     @IBAction func addButton(_ sender: AnyObject) {
         var ref : DatabaseReference!
-        ref = Database.database().reference()
+        ref = Database.database().reference(withPath: "Request")
         
-        let alert = UIAlertController(title: "Grocery Item",
+        let alert = UIAlertController(title: "Add New Request",
                                       message: "Add an Item",
                                       preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save",
                                        style: .default) { _ in
-                                        // 1
+                                        // 1 Get text from alert
                                         guard let textField = alert.textFields?.first,
                                             let text = textField.text else { return }
+                                        let status = "open"
                                         
-                                        // 2
+                                        // 2 Create new Object (Request)
                                         let groceryItem = GroceryItem(name: text,
-                                                                      completed: false)
-                                        // 3
+                                                                      status: status)
+                                        // 3 Create reference
                                         let groceryItemRef = ref.child(text.lowercased())
                                         
-                                        // 4
+                                        // 4 Save data to firebase (setValue)
                                         groceryItemRef.setValue(groceryItem.toAnyObject())
         }
         

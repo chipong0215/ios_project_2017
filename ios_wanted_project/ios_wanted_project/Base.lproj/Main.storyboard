@@ -481,7 +481,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <connections>
-                                <action selector="addButton:" destination="BvM-6i-oAh" eventType="touchUpInside" id="0Bj-ge-PHk"/>
+                                <action selector="addButton:" destination="BvM-6i-oAh" eventType="touchUpInside" id="poj-U4-S8b"/>
                             </connections>
                         </button>
                         <prototypes>
