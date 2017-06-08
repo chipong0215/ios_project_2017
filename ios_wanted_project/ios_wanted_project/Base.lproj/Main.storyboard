@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XXJ-C0-pbA">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XXJ-C0-pbA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -246,21 +243,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BillCell" textLabel="1yv-s6-2We" detailTextLabel="HG8-Pt-tMH" style="IBUITableViewCellStyleValue1" id="d1c-Az-UyQ">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d1c-Az-UyQ" id="ThM-5q-XlB">
-                                    <frame key="frameInset" width="342" height="43.5"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Quest1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1yv-s6-2We">
-                                            <frame key="frameInset" minX="15" minY="12" width="53.5" height="20.5"/>
+                                            <frame key="frameInset" minX="15" minY="11" width="54" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Status" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HG8-Pt-tMH">
-                                            <frame key="frameInset" minX="290.5" minY="12" width="49.5" height="20.5"/>
+                                            <frame key="frameInset" minX="290" minY="11" width="50" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -490,7 +487,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <connections>
-                                <action selector="addButton:" destination="BvM-6i-oAh" eventType="touchUpInside" id="0Bj-ge-PHk"/>
+                                <action selector="addButton:" destination="BvM-6i-oAh" eventType="touchUpInside" id="poj-U4-S8b"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -498,7 +495,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Cx-dk-tZm" id="NkX-R2-OIO">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D3-Tl-dXI">
@@ -540,10 +537,10 @@
             </objects>
             <point key="canvasLocation" x="4386" y="158"/>
         </scene>
-        <!--View Controller-->
+        <!--New Post View Controller-->
         <scene sceneID="eTZ-ia-bnP">
             <objects>
-                <viewController id="BaZ-dR-j99" sceneMemberID="viewController">
+                <viewController id="BaZ-dR-j99" customClass="NewPostViewController" customModule="ios_wanted_project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PNk-Aw-abZ"/>
                         <viewControllerLayoutGuide type="bottom" id="O49-vj-4nv"/>
@@ -552,16 +549,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Post" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-Ac-80p">
-                                <frame key="frameInset" minX="54" minY="61" width="136" height="90"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Npa-wp-zhJ">
+                                <frame key="frameInset" minX="24" minY="159" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7t-6a-Dye">
+                                <frame key="frameInset" minX="31" minY="121" width="34" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcM-fZ-aa3">
+                                <frame key="frameInset" minX="36" minY="283" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="addPostButton:" destination="BaZ-dR-j99" eventType="touchUpInside" id="ZCx-wB-SqA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="RequestName" destination="Npa-wp-zhJ" id="BPy-Jp-9bz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hn-i3-bGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -633,9 +648,6 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="eQf-Xc-pW5"/>
                         <segue destination="cUa-bX-EfG" kind="relationship" relationship="viewControllers" id="kNK-6T-4QP"/>
-                        <segue destination="yqT-pf-R5p" kind="relationship" relationship="viewControllers" id="AM2-b3-D02"/>
-                        <segue destination="Bq2-IH-EuI" kind="relationship" relationship="viewControllers" id="R0P-vj-dAs"/>
-                        <segue destination="Mbf-Q5-uCg" kind="relationship" relationship="viewControllers" id="pW1-BW-drS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zk0-2e-p1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -644,8 +656,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c5e-Pf-BsC"/>
         <segue reference="agK-A3-Bo1"/>
+        <segue reference="c5e-Pf-BsC"/>
         <segue reference="lIw-VR-EQN"/>
+        <segue reference="kNK-6T-4QP"/>
     </inferredMetricsTieBreakers>
 </document>
