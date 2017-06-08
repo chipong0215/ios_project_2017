@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0410BDE01EE86244008DC7D7 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410BDDF1EE86244008DC7D7 /* ProfileTableViewController.swift */; };
+		0410BDE21EE9581F008DC7D7 /* NewPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410BDE11EE9581F008DC7D7 /* NewPostTableViewController.swift */; };
 		1A1700DDDBB48A115BA4658C /* Pods_ios_wanted_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38496AC04B905B46A06253F /* Pods_ios_wanted_project.framework */; };
 		6D2A556A1ED2A82C0037F89C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2A55691ED2A82C0037F89C /* LoginViewController.swift */; };
 		6D2A556C1ED2A8770037F89C /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2A556B1ED2A8770037F89C /* ResetPasswordViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0410BDDF1EE86244008DC7D7 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		0410BDE11EE9581F008DC7D7 /* NewPostTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostTableViewController.swift; sourceTree = "<group>"; };
 		6D2A55691ED2A82C0037F89C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6D2A556B1ED2A8770037F89C /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		6D2A556D1ED2A8A00037F89C /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */,
 				F9DA45211ED45ADF00AA6487 /* MyBillViewController.swift */,
 				F9DA45231ED4AE5500AA6487 /* FunctionContainer.swift */,
+				0410BDE11EE9581F008DC7D7 /* NewPostTableViewController.swift */,
+				0410BDDF1EE86244008DC7D7 /* ProfileTableViewController.swift */,
 				F9BC5BA31EB07A83004769DC /* Main.storyboard */,
 				F9BC5BA61EB07A83004769DC /* Assets.xcassets */,
 				F9BC5BA81EB07A83004769DC /* LaunchScreen.storyboard */,
@@ -248,11 +254,13 @@
 				6D2A556A1ED2A82C0037F89C /* LoginViewController.swift in Sources */,
 				F9DA451E1ED430E000AA6487 /* PostShownViewController.swift in Sources */,
 				6D2A556C1ED2A8770037F89C /* ResetPasswordViewController.swift in Sources */,
+				0410BDE21EE9581F008DC7D7 /* NewPostTableViewController.swift in Sources */,
 				6D2A556E1ED2A8A00037F89C /* SignupViewController.swift in Sources */,
 				F9BC5BA21EB07A83004769DC /* ViewController.swift in Sources */,
 				F9DA45221ED45ADF00AA6487 /* MyBillViewController.swift in Sources */,
 				F9DA45241ED4AE5500AA6487 /* FunctionContainer.swift in Sources */,
 				F9A9C61F1ED3359000E6C8A7 /* PostListViewController.swift in Sources */,
+				0410BDE01EE86244008DC7D7 /* ProfileTableViewController.swift in Sources */,
 				F9BC5BA01EB07A83004769DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
