@@ -27,11 +27,6 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         regionPicker.delegate = self
         regionPicker.dataSource = self
         requestRegion.inputView = regionPicker
-        
-        let ref = Database.database().reference(withPath: "Request")
-        ref.observe(.value, with: { snapshot in
-            print(snapshot.value)
-        })
     }
     
     // Write Data Code
@@ -48,12 +43,11 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let detail = requestDetail.text
         let status = "open"
         
-        // 2 Create reference to firebase
-        let requestItemRef = ref.childByAutoId()
-        let key = requestItemRef.key
+        // 2 Create new Object (Request)
+        let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status)
         
-        // 3 Create new Object (Request)
-        let requestItem = RequestItem(key: requestItemRef.key, name: name!, price: price!, region: region!, detail: detail!, status: status)
+        // 3 Create reference to firebase
+        let requestItemRef = ref.childByAutoId()
         
         // 4 Save data to firebase (setValue)
         requestItemRef.setValue(requestItem.toAnyObject())
