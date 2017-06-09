@@ -8,40 +8,52 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 import FirebaseDatabase
 
-struct GroceryItem {
+struct RequestItem {
     
-    let key: String
-    let name: String
     let ref: DatabaseReference?
-    var status: String
-    let requester: String
-    let accepter: String
     
-    init(name: String, status: String, key: String = "") {
-        self.key = key
+    let name: String
+    var status: String
+    let price: String
+    let region: String
+    let detail: String
+
+    init(name: String,
+         price: String,
+         region: String,
+         detail: String,
+         status: String) {
+        
+        self.ref = nil
+        
         self.name = name
         self.status = status
-        self.ref = nil
-        self.requester = ""
-        self.accepter = ""
+        self.price = price
+        self.region = region
+        self.detail = detail
     }
     
     init(snapshot: DataSnapshot) {
-        key = snapshot.key
         ref = snapshot.ref
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        name = snapshotValue["name"] as! String
+        
+        name = snapshotValue["title"] as! String
         status = snapshotValue["status"] as! String
-        requester = snapshotValue["requester"] as! String
-        accepter = snapshotValue["accepter"] as! String
+        price = snapshotValue["price"] as! String
+        region = snapshotValue["region"] as! String
+        detail = snapshotValue["detail"] as! String
     }
     
     func toAnyObject() -> Any {
         return [
-            "name": name,
-            "status": status
+            "title": name,
+            "status": status,
+            "price": price,
+            "region": region,
+            "detail": detail
         ]
     }
     

@@ -77,41 +77,41 @@ class PostListViewController: UITableViewController {
     
        //Write Data Trial
     
-    @IBAction func addButton(_ sender: AnyObject) {
-        var ref : DatabaseReference!
-        ref = Database.database().reference(withPath: "Request")
-        
-        let alert = UIAlertController(title: "Add New Request",
-                                      message: "Add an Item",
-                                      preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default) { _ in
-                                        // 1 Get text from alert
-                                        guard let textField = alert.textFields?.first,
-                                            let text = textField.text else { return }
-                                        let status = "open"
-                                        
-                                        // 2 Create new Object (Request)
-                                        let groceryItem = GroceryItem(name: text,
-                                                                      status: status)
-                                        // 3 Create reference
-                                        let groceryItemRef = ref.child(text.lowercased())
-                                        
-                                        // 4 Save data to firebase (setValue)
-                                        groceryItemRef.setValue(groceryItem.toAnyObject())
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
-        
-        alert.addTextField()
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
+//    @IBAction func addButton(_ sender: AnyObject) {
+//        var ref : DatabaseReference!
+//        ref = Database.database().reference(withPath: "Request")
+//        
+//        let alert = UIAlertController(title: "Add New Request",
+//                                      message: "Add an Item",
+//                                      preferredStyle: .alert)
+//        
+//        let saveAction = UIAlertAction(title: "Save",
+//                                       style: .default) { _ in
+//                                        // 1 Get text from alert
+//                                        guard let textField = alert.textFields?.first,
+//                                            let text = textField.text else { return }
+//                                        let status = "open"
+//                                        
+//                                        // 2 Create new Object (Request)
+//                                        let groceryItem = RequestItem(name: text,
+//                                                                      status: status)
+//                                        // 3 Create reference
+//                                        let groceryItemRef = ref.child(text.lowercased())
+//                                        
+//                                        // 4 Save data to firebase (setValue)
+//                                        groceryItemRef.setValue(groceryItem.toAnyObject())
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel",
+//                                         style: .default)
+//        
+//        alert.addTextField()
+//        
+//        alert.addAction(saveAction)
+//        alert.addAction(cancelAction)
+//        
+//        present(alert, animated: true, completion: nil)
+//    }
     @IBAction func undiwndToHomeScreen(segue:UIStoryboardSegue){
         
     }
