@@ -40,8 +40,7 @@ class LoginViewController: UIViewController {
             }
                 // 登入成功並顯示已登入
             else{
-                self.performSegue(withIdentifier: "LoginMainSegue", sender: nil)
-                Functions.showMsg("Welcome Back ", viewController: self)
+                Functions.showMsgSegue("Welcome Back", viewController: self, segueIdentifier: "LoginMainSegue")
             }
         }
     }

@@ -57,6 +57,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         // Save data to firebase (setValue)
         requestItemRef.setValue(requestItem.toAnyObject())
         
+        Functions.showMsgSegue("Your request is being published.", viewController: self, segueIdentifier: "BackToPostList")
     }
     
     // Picker View Code

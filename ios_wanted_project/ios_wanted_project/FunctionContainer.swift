@@ -23,6 +23,14 @@ struct Functions{
         viewController.present(alertController, animated: true, completion: nil)
     }
     
+    static func showMsgSegue(_ message: String, viewController: UIViewController, segueIdentifier: String) {
+        let alertController = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "確定", style: .default, handler: { action in viewController.performSegue(withIdentifier: segueIdentifier, sender: viewController)})
+        
+        alertController.addAction(cancel)
+        
+        viewController.present(alertController, animated: true, completion: nil)
+    }
     /*
     static func postList() -> [RequestItem]{
         var items : [RequestItem] = []
