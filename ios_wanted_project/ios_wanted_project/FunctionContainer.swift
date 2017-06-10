@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 struct Functions{
     
@@ -20,6 +22,34 @@ struct Functions{
         
         viewController.present(alertController, animated: true, completion: nil)
     }
-
+    
+    /*
+    static func postList() -> [RequestItem]{
+        var items : [RequestItem] = []
+        
+        var ref : DatabaseReference!
+        ref = Database.database().reference(withPath: "Request")
+        
+        // Observe any change in Firebase
+        ref.observe(.value, with: { snapshot in
+            // Create a storage for latest data
+            
+            var newItems: [RequestItem] = []
+            // Adding item to the storage
+            for item in snapshot.children {
+                let requestItem = RequestItem(snapshot: item as! DataSnapshot)
+                newItems.append(requestItem)
+            }
+            // Reassign new data and reload view
+     
+            items = newItems        //items has a proper outcome here
+            // self.items = newItems
+            // self.tableView.reloadData()
+        })
+        print("HELLO")
+        print(items)
+        return items       // it's a fucking nil....
+    }
+    */
     
 }

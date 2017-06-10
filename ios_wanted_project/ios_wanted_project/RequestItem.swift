@@ -15,19 +15,17 @@ struct RequestItem {
     
     let ref: DatabaseReference?
     
+    let key:String
     let name: String
     var status: String
     let price: String
     let region: String
     let detail: String
 
-    init(name: String,
-         price: String,
-         region: String,
-         detail: String,
-         status: String) {
+    init(name: String, price: String, region: String, detail: String, status: String) {
         
         self.ref = nil
+        self.key = ""
         
         self.name = name
         self.status = status
@@ -38,6 +36,7 @@ struct RequestItem {
     
     init(snapshot: DataSnapshot) {
         ref = snapshot.ref
+        key = snapshot.key
         let snapshotValue = snapshot.value as! [String: AnyObject]
         
         name = snapshotValue["title"] as! String
@@ -53,7 +52,7 @@ struct RequestItem {
             "status": status,
             "price": price,
             "region": region,
-            "detail": detail
+            "detail": detail,
         ]
     }
     

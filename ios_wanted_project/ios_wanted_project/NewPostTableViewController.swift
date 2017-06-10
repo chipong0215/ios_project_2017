@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var regionList = ["文山區", "大安區"]
+    var regionList = ["文山區", "大安區", "新店區", "信義區", "中山區", "萬華區"]
     let regionPicker = UIPickerView()
     
     @IBOutlet weak var requestName: UITextField!
@@ -27,6 +27,11 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         regionPicker.delegate = self
         regionPicker.dataSource = self
         requestRegion.inputView = regionPicker
+        
+        let ref = Database.database().reference(withPath: "Request")
+        ref.observe(.value, with: { snapshot in
+            //print(snapshot.value)
+        })
     }
     
     // Write Data Code
@@ -43,11 +48,11 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let detail = requestDetail.text
         let status = "open"
         
-        // 2 Create new Object (Request)
-        let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status)
-        
-        // 3 Create reference to firebase
+        // Create reference to firebase
         let requestItemRef = ref.childByAutoId()
+        
+        // Create new Object (Request)
+        let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status)
         
         // Save data to firebase (setValue)
         requestItemRef.setValue(requestItem.toAnyObject())
