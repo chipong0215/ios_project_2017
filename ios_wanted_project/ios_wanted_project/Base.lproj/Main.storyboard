@@ -296,62 +296,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rzb-HB-cCz">
-                                <rect key="frame" x="114" y="426" width="157" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sCH-HR-kIT">
+                                <rect key="frame" x="22" y="378" width="331" height="140"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gu-7a-aoO">
-                                        <rect key="frame" x="0.0" y="0.0" width="49" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="排隊"/>
-                                    </button>
-                                    <button opaque="NO" tag="1005" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPA-f0-AiT">
-                                        <rect key="frame" x="54" y="0.0" width="49" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="煮食"/>
-                                    </button>
-                                    <button opaque="NO" tag="1006" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrT-rD-19C">
-                                        <rect key="frame" x="108" y="0.0" width="49" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="其他"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Ce-bR-sQI">
-                                <rect key="frame" x="22" y="329" width="331" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkr-iR-U8p">
-                                        <rect key="frame" x="0.0" y="0.0" width="97" height="70"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                        <state key="normal" title="清潔"/>
-                                        <connections>
-                                            <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Uh-2b-ot6"/>
-                                            <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1001" id="Zp9-p7-4OT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6v7-a6-tjK">
-                                        <rect key="frame" x="117" y="0.0" width="97" height="70"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                        <state key="normal" title="維修"/>
-                                        <connections>
-                                            <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvU-Ne-5Im"/>
-                                            <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1002" id="lIw-VR-EQN"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwB-6U-OCA">
-                                        <rect key="frame" x="234" y="0.0" width="97" height="70"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                        <state key="normal" title="托管"/>
-                                        <connections>
-                                            <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qDY-Hn-SE7"/>
-                                            <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1003" id="7kO-be-MxY"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Ce-bR-sQI">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkr-iR-U8p">
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                <state key="normal" title="清潔"/>
+                                                <connections>
+                                                    <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Uh-2b-ot6"/>
+                                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1001" id="Zp9-p7-4OT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6v7-a6-tjK">
+                                                <rect key="frame" x="117" y="0.0" width="97" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                <state key="normal" title="維修"/>
+                                                <connections>
+                                                    <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvU-Ne-5Im"/>
+                                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1002" id="lIw-VR-EQN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwB-6U-OCA">
+                                                <rect key="frame" x="234" y="0.0" width="97" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                <state key="normal" title="托管"/>
+                                                <connections>
+                                                    <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qDY-Hn-SE7"/>
+                                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1003" id="7kO-be-MxY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rzb-HB-cCz">
+                                        <rect key="frame" x="0.0" y="70" width="331" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gu-7a-aoO">
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                <state key="normal" title="排隊"/>
+                                            </button>
+                                            <button opaque="NO" tag="1005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPA-f0-AiT">
+                                                <rect key="frame" x="117" y="0.0" width="97" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                <state key="normal" title="煮食"/>
+                                            </button>
+                                            <button opaque="NO" tag="1006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrT-rD-19C">
+                                                <rect key="frame" x="234" y="0.0" width="97" height="70"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                <state key="normal" title="其他"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sCH-HR-kIT" secondAttribute="trailing" constant="6" id="FuL-MB-qrf"/>
+                            <constraint firstItem="sCH-HR-kIT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="6" id="b1p-4K-CeO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sCH-HR-kIT" secondAttribute="bottom" constant="100" id="vBZ-9R-t6X"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="主頁" image="home" id="n6F-QJ-TAO"/>
                 </viewController>
@@ -729,7 +737,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Sq0-7x-awE">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Jzq-Mf-2RU">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="Jzq-Mf-2RU">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="BAu-ce-ncP" kind="unwind" unwindAction="undiwndToHomeScreenWithSegue:" id="ax4-g3-mPf"/>
@@ -1036,6 +1044,9 @@
                                                     <rect key="frame" x="217" y="55" width="78" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="更換照片"/>
+                                                    <connections>
+                                                        <action selector="ChangeImage:" destination="G1i-Or-UZo" eventType="touchUpInside" id="cDN-nB-BQM"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-Un-e3s">
                                                     <rect key="frame" x="51" y="24" width="90" height="90"/>
@@ -1221,9 +1232,9 @@
         <image name="star" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zp9-p7-4OT"/>
         <segue reference="c5e-Pf-BsC"/>
         <segue reference="agK-A3-Bo1"/>
+        <segue reference="lIw-VR-EQN"/>
         <segue reference="7yC-dq-C7d"/>
     </inferredMetricsTieBreakers>
 </document>
