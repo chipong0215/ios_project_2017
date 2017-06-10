@@ -18,7 +18,6 @@ class PostListViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationItem.title = category
         
-        // database access test
         var ref : DatabaseReference!
         ref = Database.database().reference()
         
