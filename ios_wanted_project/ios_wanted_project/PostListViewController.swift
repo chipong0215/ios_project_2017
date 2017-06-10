@@ -11,6 +11,7 @@ import Firebase
 import FirebaseDatabase
 
 class PostListViewController: UITableViewController {
+    
     var items:[RequestItem] = []
     
     static var titleName : String = ""
@@ -20,18 +21,19 @@ class PostListViewController: UITableViewController {
         super.viewDidLoad()
         self.navigationItem.title = category
         
-        // database access test
         var ref : DatabaseReference!
         ref = Database.database().reference(withPath: "Request")
         
+        // Observe any change in Firebase
         ref.observe(.value, with: { snapshot in
+            // Create a storage for latest data
             var newItems: [RequestItem] = []
-            
+            // Adding item to the storage
             for item in snapshot.children {
                 let requestItem = RequestItem(snapshot: item as! DataSnapshot)
                 newItems.append(requestItem)
             }
-            
+            // Reassign new data and reload view
             self.items = newItems
             self.tableView.reloadData()
         })

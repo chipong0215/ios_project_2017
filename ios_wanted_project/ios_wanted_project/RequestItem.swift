@@ -14,7 +14,6 @@ import FirebaseDatabase
 struct RequestItem {
     
     let ref: DatabaseReference?
-    let key: String
     
     let name: String
     var status: String
@@ -22,15 +21,13 @@ struct RequestItem {
     let region: String
     let detail: String
 
-    init(key: String,
-         name: String,
+    init(name: String,
          price: String,
          region: String,
          detail: String,
          status: String) {
         
         self.ref = nil
-        self.key = key
         
         self.name = name
         self.status = status
@@ -42,7 +39,6 @@ struct RequestItem {
     init(snapshot: DataSnapshot) {
         ref = snapshot.ref
         let snapshotValue = snapshot.value as! [String: AnyObject]
-        key = snapshotValue["key"] as! String
         
         name = snapshotValue["title"] as! String
         status = snapshotValue["status"] as! String
@@ -58,7 +54,6 @@ struct RequestItem {
             "price": price,
             "region": region,
             "detail": detail,
-            "key": key
         ]
     }
     
