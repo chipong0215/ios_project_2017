@@ -8,10 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 
 class EditProfileTableViewController: UITableViewController {
-    
     
     
     let storageRef = Storage.storage().reference()

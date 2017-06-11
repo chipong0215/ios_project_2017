@@ -9,22 +9,24 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 
 class PostListViewController: UITableViewController {
     
-    var items:[RequestItem] = []
+    var items: [RequestItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var ref : DatabaseReference!
+        var ref: DatabaseReference!
         ref = Database.database().reference(withPath: "Request")
         
         // Observe any change in Firebase
         ref.observe(.value, with: { snapshot in
-            // Create a storage for latest data
             
+            // Create a storage for latest data
             var newItems: [RequestItem] = []
+            
             // Adding item to the storage
             for item in snapshot.children {
                 let requestItem = RequestItem(snapshot: item as! DataSnapshot)
@@ -34,6 +36,7 @@ class PostListViewController: UITableViewController {
             self.items = newItems
             self.tableView.reloadData()
         })
+    
     }
 
     override func didReceiveMemoryWarning() {
