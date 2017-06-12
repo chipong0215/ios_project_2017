@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class MainPageViewController: UIViewController {
     static var btnName : String = ""
@@ -14,9 +16,13 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        //self.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.hidesBackButton = true
-        // Do any additional setup after loading the view.
+        
+        //get uid test
+        let userID : String = (Auth.auth().currentUser?.uid)!
+        let userEmail: String = (Auth.auth().currentUser?.email)!
+        print("Current user ID is： " + userID)
+        print("Current user email is： " + userEmail)
     }
 
     override func didReceiveMemoryWarning() {

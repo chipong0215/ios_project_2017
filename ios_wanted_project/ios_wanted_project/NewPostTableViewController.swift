@@ -32,9 +32,10 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         ref.observe(.value, with: { snapshot in
             //print(snapshot.value)
         })
+        
     }
     
-    // Write Data Code
+    // MARK: Write Data Code
     
     @IBAction func addPostButton(_ sender: AnyObject) {
         // Set Reference
@@ -48,18 +49,26 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let detail = requestDetail.text
         let status = "open"
         
+        // Get current user info
+        // let userID : String = (Auth.auth().currentUser?.uid)!
+        let userEmail: String = (Auth.auth().currentUser?.email)!
+        
+        // Create user object
+        //let currentUser = User(uid: userID, email: userEmail)
+        
         // Create reference to firebase
         let requestItemRef = ref.childByAutoId()
         
         // Create new Object (Request)
-        let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status)
+        let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status, requester: userEmail)
         
         // Save data to firebase (setValue)
         requestItemRef.setValue(requestItem.toAnyObject())
         
+        Functions.showMsgSegue("Your request is being published.", viewController: self, segueIdentifier: "BackToPostList")
     }
     
-    // Picker View Code
+    // MARK: Picker View Code
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
