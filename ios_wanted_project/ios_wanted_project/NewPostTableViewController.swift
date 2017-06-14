@@ -51,15 +51,26 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         
         // Get current user info
         let userEmail: String = (Auth.auth().currentUser?.email)!
+        let userId: String = (Auth.auth().currentUser?.uid)!
         
         // Create reference to firebase
         let requestItemRef = ref.childByAutoId()
+        let key = requestItemRef.key
         
         // Create new Object (Request)
         let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status, requester: userEmail)
         
         // Save data to firebase (setValue)
         requestItemRef.setValue(requestItem.toAnyObject())
+        
+        // Create new Object (User)
+        let userRequestUpdate = [key: status]
+        
+        // Child update
+        let userRef = Database.database().reference(withPath: "User")
+        let idRef = userRef.child("\(userId)")
+        let userRequestRef = idRef.child("request")
+        userRequestRef.updateChildValues(userRequestUpdate)
         
         Functions.showMsgSegue("Your request is being published.", viewController: self, segueIdentifier: "BackToPostList")
     }
