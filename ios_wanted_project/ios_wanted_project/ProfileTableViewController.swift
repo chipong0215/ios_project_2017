@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+
 
 class ProfileTableViewController: UITableViewController {
 
@@ -25,7 +28,15 @@ self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    @IBAction func logoutBtn(_ sender: Any) {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
