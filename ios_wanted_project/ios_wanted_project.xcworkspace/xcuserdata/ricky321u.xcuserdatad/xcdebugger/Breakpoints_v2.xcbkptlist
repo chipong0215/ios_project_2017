@@ -33,38 +33,6 @@
             endingLineNumber = "36"
             landmarkName = "createAccBtnClicked(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ios_wanted_project.SignUpViewController.createAccBtnClicked (__ObjC.UIButton) -&gt; ()"
-                  moduleName = "ios_wanted_project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/SignupViewController.swift"
-                  timestampString = "517285518.003834"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "1976">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ios_wanted_project.SignUpViewController.(createAccBtnClicked (__ObjC.UIButton) -&gt; ()).(closure #1)"
-                  moduleName = "ios_wanted_project"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/SignupViewController.swift"
-                  timestampString = "517285518.009471"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "23">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,7 +90,7 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
-                  timestampString = "517285518.021158"
+                  timestampString = "519120154.309309"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -137,7 +105,7 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
-                  timestampString = "517285518.025691"
+                  timestampString = "519120154.312146"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "26"
@@ -159,8 +127,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
-            landmarkName = "LoginViewController"
-            landmarkType = "3">
+            landmarkName = "ResetBtnClicked(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,7 +154,7 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
-                  timestampString = "517285518.034226"
+                  timestampString = "519120154.317399"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -201,7 +169,7 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
-                  timestampString = "517285518.037746"
+                  timestampString = "519120154.31968"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -216,7 +184,7 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
-                  timestampString = "517285518.042527"
+                  timestampString = "519120154.323059"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -231,7 +199,7 @@
                   moduleName = "ios_wanted_project"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ricky321u/ios_project_2017/ios_wanted_project/ios_wanted_project/ResetPasswordViewController.swift"
-                  timestampString = "517285518.045801"
+                  timestampString = "519120154.325767"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"

@@ -20,7 +20,9 @@ class MainPageViewController: UIViewController {
         
         //get uid test
         let userID : String = (Auth.auth().currentUser?.uid)!
+        let userEmail: String = (Auth.auth().currentUser?.email)!
         print("Current user ID is： " + userID)
+        print("Current user email is： " + userEmail)
     }
 
     override func didReceiveMemoryWarning() {

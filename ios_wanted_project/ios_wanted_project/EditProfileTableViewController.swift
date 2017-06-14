@@ -8,26 +8,126 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseStorage
 
 
 class EditProfileTableViewController: UITableViewController {
     
+    @IBOutlet weak var ImageCell: UITableViewCell!
+    @IBOutlet weak var NameCell: UITableViewCell!
+    @IBOutlet weak var MailCell: UITableViewCell!
+    @IBOutlet weak var TelCell: UITableViewCell!
+    @IBOutlet weak var RegionCell: UITableViewCell!
     
     
-    let storageRef = Storage.storage().reference()
-    
-    let databaseRef = Database.database().reference()
-    
+    @IBOutlet weak var BlankCell: UITableViewCell!
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var userTel: UITextField!
+    @IBOutlet weak var iconChangeView: UIImageView!
+    var fireUploadDic: [String:Any]?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        let databaseRef = Database.database().reference().child("ProfileUpload")
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        databaseRef.observe(.value, with: { [weak self] (snapshot) in
+            
+            if let uploadDataDic = snapshot.value as? [String:Any] {
+                
+                self?.fireUploadDic = uploadDataDic
+                self?.tableView!.reloadData()
+            }
+        })
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath == [0,0] {
+            //set the data here
+            let cell = ImageCell
+            if let dataDic = fireUploadDic {
+                //print(dataDic.count)
+                let keyArray = Array(dataDic.keys)
+                if let imageUrlString = dataDic[keyArray[dataDic.count-1]] as? String {
+                    if let imageUrl = URL(string: imageUrlString) {
+                        
+                        URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
+                            
+                            if error != nil {
+                                
+                                print("Download Image Task Fail: \(error!.localizedDescription)")
+                            }
+                            else if let imageData = data {
+                                
+                                DispatchQueue.main.async {
+                                    
+                                    self.iconChangeView.image = UIImage(data: imageData)
+                                }
+                            }
+                            
+                        }).resume()
+                    }
+                }
+            }
+            return cell!
+        }
+        else if indexPath == [0,1] {
+            let cell = NameCell
+            //set the data here
+            return cell!
+        }
+        else if indexPath == [0,2] {
+            let cell = MailCell
+            return cell!
+        }
+        else if indexPath == [0,3] {
+            let cell = TelCell
+            return cell!
+        }
+        else if indexPath == [0,4] {
+            let cell = RegionCell
+            return cell!
+            
+        }
+//        else if indexPath == [1,0] {
+//            let cell = RegionCell
+//            return cell!
+//            
+//        }
+//        else if indexPath == [1,1] {
+//            let cell = RegionCell
+//            return cell!
+//            
+//        }
+//        else if indexPath == [1,2] {
+//            let cell = RegionCell
+//            return cell!
+//            
+//        }
+        else{
+            let cell = BlankCell
+            return cell!
+        }
     }
 
+    @IBAction func editProfileDone(_ sender: UIBarButtonItem) {
+        
+        // Set Reference
+        var ref : DatabaseReference!
+        ref = Database.database().reference(withPath: "User")
+        // Get user info
+        let name = userName.text
+        let tel = userTel.text
+        let email: String = (Auth.auth().currentUser?.email)!
+        let uid: String = (Auth.auth().currentUser?.uid)!
+        // Create new Object (User)
+        let userUpdate = ["uid": uid, "email": email, "name": name!, "tel": tel!]
+        
+        // Child update
+        let childUpdate = ["/\(uid)": userUpdate]
+        ref.updateChildValues(childUpdate)
+    }
     
     @IBAction func ChangeImage(_ sender: UIButton) {
         
@@ -96,7 +196,7 @@ extension UITableViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
         let uniqueString = NSUUID().uuidString
-        
+
         // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
         if let selectedImage = selectedImageFromPicker {
             
@@ -124,26 +224,17 @@ extension UITableViewController: UIImagePickerControllerDelegate, UINavigationCo
                         databaseRef.setValue(uploadImageUrl, withCompletionBlock: { (error, dataRef) in
                             
                             if error != nil {
-                                
                                 print("Database Error: \(error!.localizedDescription)")
                             }
                             else {
-                                
                                 print("圖片已儲存")
                             }
-                            
                         })
                     }
                 })
             }
         }
-        
         dismiss(animated: true, completion: nil)
-
-        
-    
-    
-    
     }
    
-    }
+}
