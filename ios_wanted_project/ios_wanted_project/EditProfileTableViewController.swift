@@ -8,26 +8,40 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseStorage
 
 
 class EditProfileTableViewController: UITableViewController {
     
-    
     let storageRef = Storage.storage().reference()
-    
     let databaseRef = Database.database().reference()
+    
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var userTel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    
     }
 
+    @IBAction func editProfileDone(_ sender: UIBarButtonItem) {
+        
+        // Set Reference
+        var ref : DatabaseReference!
+        ref = Database.database().reference(withPath: "User")
+        // Get user info
+        let name = userName.text
+        let tel = userTel.text
+        let email: String = (Auth.auth().currentUser?.email)!
+        let uid: String = (Auth.auth().currentUser?.uid)!
+        // Create new Object (User)
+        let userUpdate = ["uid": uid, "email": email, "name": name!, "tel": tel!]
+        
+        // Child update
+        let childUpdate = ["/\(uid)": userUpdate]
+        ref.updateChildValues(childUpdate)
+    }
     
     @IBAction func ChangeImage(_ sender: UIButton) {
         
@@ -124,26 +138,17 @@ extension UITableViewController: UIImagePickerControllerDelegate, UINavigationCo
                         databaseRef.setValue(uploadImageUrl, withCompletionBlock: { (error, dataRef) in
                             
                             if error != nil {
-                                
                                 print("Database Error: \(error!.localizedDescription)")
                             }
                             else {
-                                
                                 print("圖片已儲存")
                             }
-                            
                         })
                     }
                 })
             }
         }
-        
         dismiss(animated: true, completion: nil)
-
-        
-    
-    
-    
     }
    
     }

@@ -50,11 +50,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let status = "open"
         
         // Get current user info
-        // let userID : String = (Auth.auth().currentUser?.uid)!
         let userEmail: String = (Auth.auth().currentUser?.email)!
-        
-        // Create user object
-        //let currentUser = User(uid: userID, email: userEmail)
         
         // Create reference to firebase
         let requestItemRef = ref.childByAutoId()
