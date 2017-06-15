@@ -14,11 +14,13 @@ import FirebaseAuth
 class ProfileTableViewController: UITableViewController {
 
     @IBOutlet weak var iconView: UIImageView!
-    
     @IBOutlet weak var FirstCell: UITableViewCell!
+    @IBOutlet weak var SecondCell: UITableViewCell!
+    @IBOutlet weak var LogoutCell: UITableViewCell!
+    @IBOutlet weak var BlankCell: UITableViewCell!
     
     var fireUploadDic: [String:Any]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
@@ -33,6 +35,7 @@ class ProfileTableViewController: UITableViewController {
                 self?.tableView!.reloadData()
             }
         })
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -75,7 +78,6 @@ class ProfileTableViewController: UITableViewController {
         return 1
         }
     }
-    
     @IBAction func undiwndToHomeScreen(segue:UIStoryboardSegue){
         
     }
@@ -83,15 +85,16 @@ class ProfileTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        if indexPath.section == 0 && indexPath.row == 0 {
+        if indexPath == [0,0] {
             //let cell : FirstCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "firstCell")
+            
             //set the data here
             let cell = FirstCell
             if let dataDic = fireUploadDic {
                 let keyArray = Array(dataDic.keys)
-                print(keyArray[dataDic.count-1])
+                //print(keyArray[dataDic.count-1])
                 if let imageUrlString = dataDic[keyArray[dataDic.count-1]] as? String {
-                    print(imageUrlString)
+                  //  print(imageUrlString)
                     if let imageUrl = URL(string: imageUrlString) {
                         
                         URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
@@ -112,21 +115,32 @@ class ProfileTableViewController: UITableViewController {
                     }
                 }
             }
-          //  iconView.image = UIImage(named: "gear")
-           // print("im here")
+            //  iconView.image = UIImage(named: "gear")
+            // print("im here")
             return cell!
         }
-        else{
-            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "FirstCell")
-            //set the data here
-            return cell
+        else if indexPath == [0,1] {
+            let cell = SecondCell
+            
+            // ...
+            return cell!
         }
-    
+        else if indexPath == [3,0] {
+            let cell = LogoutCell
+            
+            return cell!
+        }
+        else {
+            let cell = self.BlankCell
+            
+            return cell!
+        }
+        
         // Configure the cell...
-
+        
         //return cell
     }
-    
-
-    
 }
+
+
+

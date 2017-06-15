@@ -14,19 +14,20 @@ import FirebaseStorage
 
 class EditProfileTableViewController: UITableViewController {
     
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var userTel: UITextField!
+    @IBOutlet weak var iconChangeView: UIImageView!
+    
     @IBOutlet weak var ImageCell: UITableViewCell!
     @IBOutlet weak var NameCell: UITableViewCell!
     @IBOutlet weak var MailCell: UITableViewCell!
     @IBOutlet weak var TelCell: UITableViewCell!
     @IBOutlet weak var RegionCell: UITableViewCell!
-    
-    
     @IBOutlet weak var BlankCell: UITableViewCell!
-    @IBOutlet weak var userName: UITextField!
-    @IBOutlet weak var userTel: UITextField!
-    @IBOutlet weak var iconChangeView: UIImageView!
+    
     var fireUploadDic: [String:Any]?
-   
+    var imageUrl: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,26 +91,12 @@ class EditProfileTableViewController: UITableViewController {
             return cell!
             
         }
-//        else if indexPath == [1,0] {
-//            let cell = RegionCell
-//            return cell!
-//            
-//        }
-//        else if indexPath == [1,1] {
-//            let cell = RegionCell
-//            return cell!
-//            
-//        }
-//        else if indexPath == [1,2] {
-//            let cell = RegionCell
-//            return cell!
-//            
-//        }
         else{
             let cell = BlankCell
             return cell!
         }
     }
+
 
     @IBAction func editProfileDone(_ sender: UIBarButtonItem) {
         
@@ -121,8 +108,9 @@ class EditProfileTableViewController: UITableViewController {
         let tel = userTel.text
         let email: String = (Auth.auth().currentUser?.email)!
         let uid: String = (Auth.auth().currentUser?.uid)!
+        let image = self.imageUrl
         // Create new Object (User)
-        let userUpdate = ["uid": uid, "email": email, "name": name!, "tel": tel!]
+        let userUpdate = ["uid": uid, "email": email, "name": name!, "tel": tel!, "image": image]
         
         // Child update
         let childUpdate = ["/\(uid)": userUpdate]
@@ -182,7 +170,7 @@ class EditProfileTableViewController: UITableViewController {
     
 }
 
-extension UITableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
@@ -196,12 +184,12 @@ extension UITableViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
         let uniqueString = NSUUID().uuidString
-
+        self.imageUrl = ("\(uniqueString).png")
+       
         // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
         if let selectedImage = selectedImageFromPicker {
             
             let storageRef = Storage.storage().reference().child("ProfileUpload").child("\(uniqueString).png")
-            
             if let uploadData = UIImagePNGRepresentation(selectedImage) {
                 // 這行就是 FirebaseStroge 關鍵的存取方法。
                 storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
@@ -236,5 +224,10 @@ extension UITableViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         dismiss(animated: true, completion: nil)
     }
+    
+//    static func getImageUrl (get imageUrl: String ) -> String {
+//        
+//        return imageUrl
+//    }
    
-}
+    }

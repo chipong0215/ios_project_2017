@@ -24,9 +24,6 @@
 		F9BC5BA51EB07A83004769DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BC5BA31EB07A83004769DC /* Main.storyboard */; };
 		F9BC5BA71EB07A83004769DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9BC5BA61EB07A83004769DC /* Assets.xcassets */; };
 		F9BC5BAA1EB07A83004769DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9BC5BA81EB07A83004769DC /* LaunchScreen.storyboard */; };
-		F9C1117F1EF19376007A53FA /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C1117E1EF19376007A53FA /* TestTableViewController.swift */; };
-		F9C111811EF19386007A53FA /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C111801EF19386007A53FA /* LabelTableViewCell.swift */; };
-		F9C111831EF19393007A53FA /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C111821EF19393007A53FA /* ButtonTableViewCell.swift */; };
 		F9DA451E1ED430E000AA6487 /* PostShownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */; };
 		F9DA45201ED4489100AA6487 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA451F1ED4489100AA6487 /* MainPageViewController.swift */; };
 		F9DA45221ED45ADF00AA6487 /* MyBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA45211ED45ADF00AA6487 /* MyBillViewController.swift */; };
@@ -55,9 +52,6 @@
 		F9BC5BA61EB07A83004769DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9BC5BA91EB07A83004769DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9BC5BAB1EB07A83004769DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9C1117E1EF19376007A53FA /* TestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
-		F9C111801EF19386007A53FA /* LabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
-		F9C111821EF19393007A53FA /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostShownViewController.swift; sourceTree = "<group>"; };
 		F9DA451F1ED4489100AA6487 /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		F9DA45211ED45ADF00AA6487 /* MyBillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBillViewController.swift; sourceTree = "<group>"; };
@@ -143,9 +137,6 @@
 				F9BC5BAB1EB07A83004769DC /* Info.plist */,
 				6DFAA5D41ECED2F100817806 /* GoogleService-Info.plist */,
 				F903FBC01EE7AD7E0029E517 /* reference */,
-				F9C1117E1EF19376007A53FA /* TestTableViewController.swift */,
-				F9C111801EF19386007A53FA /* LabelTableViewCell.swift */,
-				F9C111821EF19393007A53FA /* ButtonTableViewCell.swift */,
 			);
 			path = ios_wanted_project;
 			sourceTree = "<group>";
@@ -285,15 +276,12 @@
 				6D2A556E1ED2A8A00037F89C /* SignupViewController.swift in Sources */,
 				D2AD4A5C1EE954B90090148D /* RequestItem.swift in Sources */,
 				D2D9EEC41EED14FF0013C87D /* User.swift in Sources */,
-				F9C111831EF19393007A53FA /* ButtonTableViewCell.swift in Sources */,
 				F9BC5BA21EB07A83004769DC /* ViewController.swift in Sources */,
-				F9C111811EF19386007A53FA /* LabelTableViewCell.swift in Sources */,
 				F9DA45221ED45ADF00AA6487 /* MyBillViewController.swift in Sources */,
 				F9DA45241ED4AE5500AA6487 /* FunctionContainer.swift in Sources */,
 				F9A9C61F1ED3359000E6C8A7 /* PostListViewController.swift in Sources */,
 				0410BDE01EE86244008DC7D7 /* ProfileTableViewController.swift in Sources */,
 				F9BC5BA01EB07A83004769DC /* AppDelegate.swift in Sources */,
-				F9C1117F1EF19376007A53FA /* TestTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
