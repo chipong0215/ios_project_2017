@@ -13,10 +13,19 @@ import FirebaseAuth
 class MainPageViewController: UIViewController {
     static var btnName : String = ""
     
+    @IBOutlet weak var a: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//        let blureffectView = UIVisualEffectView(effect: blurEffect)
+//        blureffectView.frame = a.bounds
+//        a.addSubview(blureffectView)
+        
         self.tabBarController?.navigationItem.hidesBackButton = true
+//        
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Wanted20Poster-filtered.png")!)
+//    
         
         //get uid test
         let userID : String = (Auth.auth().currentUser?.uid)!
