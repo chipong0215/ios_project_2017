@@ -27,13 +27,16 @@ class EditProfileTableViewController: UITableViewController {
     
     var fireUploadDic: [String:Any]?
     var imageUrl: String?
+    var userItem: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let databaseRef = Database.database().reference().child("ProfileUpload")
+        let userID : String = (Auth.auth().currentUser?.uid)!
         
-        databaseRef.observe(.value, with: { [weak self] (snapshot) in
+        let databaseRef = Database.database().reference()
+        
+        databaseRef.child("ProfileUpload").observe(.value, with: { [weak self] (snapshot) in
             
             if let uploadDataDic = snapshot.value as? [String:Any] {
                 
@@ -41,6 +44,29 @@ class EditProfileTableViewController: UITableViewController {
                 self?.tableView!.reloadData()
             }
         })
+        
+        
+        // Observe any change in Firebase
+        databaseRef.child("User").observe(.value, with: { snapshot in
+            
+            // Create a storage for latest data
+            var newItems: User?
+            
+            // Adding item to the storage
+            for item in snapshot.children {
+                let requestItem = User(snapshot: item as! DataSnapshot)
+                //print(requestItem.uid)
+                if requestItem.uid  == userID {
+                    newItems = requestItem
+                }
+            }
+            // Reassign new data and reload view
+            self.userItem = newItems
+            self.tableView.reloadData()
+//            print("test:")
+//            print(self.userItems[0].uid)
+        })
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,9 +74,10 @@ class EditProfileTableViewController: UITableViewController {
             //set the data here
             let cell = ImageCell
             if let dataDic = fireUploadDic {
-                //print(dataDic.count)
-                let keyArray = Array(dataDic.keys)
-                if let imageUrlString = dataDic[keyArray[dataDic.count-1]] as? String {
+                
+                //let keyArray = Array(dataDic.keys)
+                
+                if let imageUrlString = dataDic[self.userItem!.image] as? String {
                     if let imageUrl = URL(string: imageUrlString) {
                         
                         URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
@@ -109,6 +136,7 @@ class EditProfileTableViewController: UITableViewController {
         let email: String = (Auth.auth().currentUser?.email)!
         let uid: String = (Auth.auth().currentUser?.uid)!
         let image = self.imageUrl
+        
         // Create new Object (User)
         let userRef = ref.child("\(uid)")
         
@@ -117,14 +145,23 @@ class EditProfileTableViewController: UITableViewController {
             let updateName = name!
             userRef.updateChildValues(["name": updateName])
         }
-        if email != "" {
+//        else if userItem?.name != "" && name == "" {
+//            //
+//        }
+
+        if tel != "" {
             let updateTel = tel!
-            userRef.updateChildValues(["tek": updateTel])
+            userRef.updateChildValues(["tel": updateTel])
         }
-        if image != nil {
+        
+        if image != "" {
             let updateImage = image!
             userRef.updateChildValues(["image": updateImage])
         }
+//        else{
+//            userRef.updateChildValues(["image": ""])
+//        }
+        
         userRef.updateChildValues(["email": email])
         userRef.updateChildValues(["uid": uid])
 
@@ -197,7 +234,7 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINav
         
         // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
         let uniqueString = NSUUID().uuidString
-        self.imageUrl = ("\(uniqueString).png")
+        self.imageUrl = uniqueString
        
         // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
         if let selectedImage = selectedImageFromPicker {
