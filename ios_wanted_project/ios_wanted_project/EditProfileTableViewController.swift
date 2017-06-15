@@ -39,7 +39,6 @@ class EditProfileTableViewController: UITableViewController {
         databaseRef.child("ProfileUpload").observe(.value, with: { [weak self] (snapshot) in
             
             if let uploadDataDic = snapshot.value as? [String:Any] {
-                
                 self?.fireUploadDic = uploadDataDic
                 self?.tableView!.reloadData()
             }
@@ -57,22 +56,25 @@ class EditProfileTableViewController: UITableViewController {
                 let requestItem = User(snapshot: item as! DataSnapshot)
                 //print(requestItem.uid)
                 if requestItem.uid  == userID {
+                    
                     newItems = requestItem
                 }
             }
             // Reassign new data and reload view
             self.userItem = newItems
             self.tableView.reloadData()
-//            print("test:")
-//            print(self.userItems[0].uid)
         })
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath == [0,0] {
             //set the data here
             let cell = ImageCell
+            
+            if self.userItem?.image == nil {
+                return cell!
+            }
+            
             if let dataDic = fireUploadDic {
                 
                 //let keyArray = Array(dataDic.keys)
@@ -154,13 +156,13 @@ class EditProfileTableViewController: UITableViewController {
             userRef.updateChildValues(["tel": updateTel])
         }
         
-        if image != "" {
+        if image != nil {
             let updateImage = image!
             userRef.updateChildValues(["image": updateImage])
         }
-//        else{
-//            userRef.updateChildValues(["image": ""])
-//        }
+        else{
+            // do nothing
+        }
         
         userRef.updateChildValues(["email": email])
         userRef.updateChildValues(["uid": uid])

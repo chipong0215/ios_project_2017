@@ -17,7 +17,7 @@ class PostListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         var ref: DatabaseReference!
         ref = Database.database().reference(withPath: "Request")
         
@@ -83,6 +83,12 @@ class PostListViewController: UITableViewController {
             }
         }
     }
+    
+//    override func didMove(toParentViewController parent: UIViewController?) {
+//        if (!(parent?.isEqual(self.parent) ?? false)) {
+//            print("Parent view loaded")
+//        }
+//    }
     
     @IBAction func undiwndToHomeScreen(segue:UIStoryboardSegue){
         

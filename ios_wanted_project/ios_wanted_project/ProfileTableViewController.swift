@@ -20,14 +20,16 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var BlankCell: UITableViewCell!
     
     var fireUploadDic: [String:Any]?
-
+    var userItem: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
         
-        let databaseRef = Database.database().reference().child("ProfileUpload")
+        let databaseRef = Database.database().reference()
+        let userID : String = (Auth.auth().currentUser?.uid)!
         
-        databaseRef.observe(.value, with: { [weak self] (snapshot) in
+        databaseRef.child("ProfileUpload").observe(.value, with: { [weak self] (snapshot) in
             
             if let uploadDataDic = snapshot.value as? [String:Any] {
                 
@@ -36,11 +38,24 @@ class ProfileTableViewController: UITableViewController {
             }
         })
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // Observe any change in Firebase
+        databaseRef.child("User").observe(.value, with: { snapshot in
+            
+            // Create a storage for latest data
+            var newItems: User?
+            
+            // Adding item to the storage
+            for item in snapshot.children {
+                let requestItem = User(snapshot: item as! DataSnapshot)
+                //print(requestItem.uid)
+                if requestItem.uid  == userID {
+                    newItems = requestItem
+                }
+            }
+            // Reassign new data and reload view
+            self.userItem = newItems
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,15 +101,16 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         if indexPath == [0,0] {
-            //let cell : FirstCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "firstCell")
             
             //set the data here
             let cell = FirstCell
+            
+            if self.userItem?.image == nil {
+                return cell!
+            }
+            
             if let dataDic = fireUploadDic {
-                let keyArray = Array(dataDic.keys)
-                //print(keyArray[dataDic.count-1])
-                if let imageUrlString = dataDic[keyArray[dataDic.count-1]] as? String {
-                  //  print(imageUrlString)
+                if let imageUrlString = dataDic[self.userItem!.image] as? String {
                     if let imageUrl = URL(string: imageUrlString) {
                         
                         URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in

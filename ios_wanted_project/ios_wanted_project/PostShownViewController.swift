@@ -18,8 +18,6 @@ class PostShownViewController: UIViewController {
     @IBOutlet weak var DetailTextViewLabel: UITextView!
     
     @IBAction func AcceptBtn(_ sender: UIButton) {
-       // let controller = PostShownViewController as! UIViewController
-      //  Functions.showMsg("eeee", viewController: controller)
         Functions.showMsg("Apply Success!!!\nWait For Confirmatation", viewController: self)
     }
     
