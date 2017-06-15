@@ -110,11 +110,24 @@ class EditProfileTableViewController: UITableViewController {
         let uid: String = (Auth.auth().currentUser?.uid)!
         let image = self.imageUrl
         // Create new Object (User)
-        let userUpdate = ["uid": uid, "email": email, "name": name!, "tel": tel!, "image": image]
+        let userRef = ref.child("\(uid)")
         
-        // Child update
-        let childUpdate = ["/\(uid)": userUpdate]
-        ref.updateChildValues(childUpdate)
+        // Child update 
+        if name != "" {
+            let updateName = name!
+            userRef.updateChildValues(["name": updateName])
+        }
+        if email != "" {
+            let updateTel = tel!
+            userRef.updateChildValues(["tek": updateTel])
+        }
+        if image != nil {
+            let updateImage = image!
+            userRef.updateChildValues(["image": updateImage])
+        }
+        userRef.updateChildValues(["email": email])
+        userRef.updateChildValues(["uid": uid])
+
     }
     
     @IBAction func ChangeImage(_ sender: UIButton) {
