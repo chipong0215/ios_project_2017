@@ -96,7 +96,7 @@ class PostListViewController: UITableViewController {
 //        }
 //    }
     
-    @IBAction func undiwndToHomeScreen(segue:UIStoryboardSegue){
+    @IBAction func undiwndToPostList(segue:UIStoryboardSegue){
         
     }
 

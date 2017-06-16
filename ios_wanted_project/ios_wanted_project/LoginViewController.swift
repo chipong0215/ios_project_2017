@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBAction func unwindToLoginPage(segue:UIStoryboardSegue) { }
+    
     @IBAction func loginButton(_ sender: Any) {
         
         let email = self.emailTextField.text

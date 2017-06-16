@@ -196,6 +196,9 @@ class EditProfileTableViewController: UITableViewController {
         
         userRef.updateChildValues(["email": email])
         userRef.updateChildValues(["uid": uid])
+        
+        dismiss(animated: true, completion: nil)
+        //performSegue(withIdentifier: "DoneEdit", sender: self)
 
     }
     
