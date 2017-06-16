@@ -15,7 +15,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
 
     var regionList = ["文山區", "大安區", "新店區", "信義區", "中山區", "萬華區"]
     let regionPicker = UIPickerView()
-    
+
     @IBOutlet weak var requestTime: UITextField!
     @IBOutlet weak var requestName: UITextField!
     @IBOutlet weak var requestPrice: UITextField!
@@ -29,11 +29,6 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         regionPicker.dataSource = self
         requestRegion.inputView = regionPicker
         
-        let ref = Database.database().reference(withPath: "Request")
-        ref.observe(.value, with: { snapshot in
-            //print(snapshot.value)
-        })
-        
     }
     
     // MARK: Write Data Code
@@ -41,7 +36,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
     @IBAction func addPostButton(_ sender: AnyObject) {
         // Set Reference
         var ref : DatabaseReference!
-        ref = Database.database().reference(withPath: "Request")
+        ref = Database.database().reference(withPath: "Request").child(PostListViewController.category!)
         
         // Get info from user's input
         let name = requestName.text

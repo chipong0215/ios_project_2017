@@ -40,9 +40,12 @@ class MainPageViewController: UIViewController {
     }
     
     @IBAction func CategoryBtn(_ sender: UIButton) {
+        let categoryArray = ["Cleaning", "Fixing", "Childcare", "Pets", "Cooking", "Tutoring"]
+        
         for var i in 1...6 {
             i += 1000;
             if(sender.tag == i){
+                PostListViewController.category = categoryArray[i-1001]
                 MainPageViewController.btnName = sender.currentTitle!
             }
         }
