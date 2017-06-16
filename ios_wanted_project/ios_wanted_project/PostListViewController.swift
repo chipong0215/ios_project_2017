@@ -14,12 +14,13 @@ import FirebaseAuth
 class PostListViewController: UITableViewController {
     
     var openItems: [RequestItem] = []
+    static var category: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+            
         var ref: DatabaseReference!
-        ref = Database.database().reference(withPath: "Request")
+        ref = Database.database().reference(withPath: "Request").child(PostListViewController.category!)
         
         // Observe any change in Firebase
         ref.observe(.value, with: { snapshot in
