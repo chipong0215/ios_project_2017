@@ -59,7 +59,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let key = requestItemRef.key
         
         // Create new Object (Request)
-        let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status, requester: userId, accepter: "")
+        let requestItem = RequestItem(name: name!, price: price!, region: region!,time: time!, detail: detail!, status: status, requester: userId, accepter: "")
         
         // Save data to firebase (setValue)
         requestItemRef.setValue(requestItem.toAnyObject())

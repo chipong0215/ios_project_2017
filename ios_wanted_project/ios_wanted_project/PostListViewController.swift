@@ -82,6 +82,8 @@ class PostListViewController: UITableViewController {
                 destinationController.detailtmp = tmp.detail
                 destinationController.keytmp = tmp.key
                 destinationController.requestertmp = tmp.requester
+                destinationController.timetmp = tmp.time
+                
 
             }
         }

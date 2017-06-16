@@ -18,12 +18,14 @@ class PostShownViewController: UIViewController {
     @IBOutlet weak var RewardLabel: UILabel!
     @IBOutlet weak var RegionLabel: UILabel!
     @IBOutlet weak var DetailTextViewLabel: UITextView!
+    @IBOutlet weak var TimeLabel: UILabel!
     
     var titletmp = ""
     var rewardtmp = ""
     var regiontmp = ""
     var detailtmp = ""
     var keytmp = ""
+    var timetmp = ""
     var requestertmp = ""
     
     @IBAction func AcceptBtn(_ sender: UIButton) {
@@ -56,6 +58,7 @@ class PostShownViewController: UIViewController {
         RewardLabel.text = rewardtmp
         RegionLabel.text = regiontmp
         DetailTextViewLabel.text = detailtmp
+        TimeLabel.text = timetmp
         // Do any additional setup after loading the view.
     }
     

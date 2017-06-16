@@ -18,6 +18,7 @@ struct RequestItem {
     let key:String
     let name: String
     var status: String
+    let time: String
     let price: String
     let region: String
     let detail: String
@@ -25,7 +26,7 @@ struct RequestItem {
     let requester: String
     let accepter: String
 
-    init(name: String, price: String, region: String, detail: String, status: String, requester: String, accepter: String) {
+    init(name: String, price: String, region: String, time: String, detail: String, status: String, requester: String, accepter: String) {
         
         self.ref = nil
         self.key = ""
@@ -35,6 +36,7 @@ struct RequestItem {
         self.price = price
         self.region = region
         self.detail = detail
+        self.time = time
         
         self.requester = requester
         self.accepter = accepter
@@ -50,7 +52,7 @@ struct RequestItem {
         price = snapshotValue["price"] as! String
         region = snapshotValue["region"] as! String
         detail = snapshotValue["detail"] as! String
-        
+        time = snapshotValue["time"] as! String
         requester = snapshotValue["requester"] as! String
         accepter = snapshotValue["accepter"] as! String
     }
@@ -63,7 +65,8 @@ struct RequestItem {
             "region": region,
             "detail": detail,
             "requester": requester,
-            "accepter": accepter
+            "accepter": accepter,
+            "time": time
         ]
     }
     
