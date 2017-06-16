@@ -13,11 +13,11 @@ import FirebaseAuth
 
 class PostListViewController: UITableViewController {
     
-    var items: [RequestItem] = []
+    var openItems: [RequestItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         var ref: DatabaseReference!
         ref = Database.database().reference(withPath: "Request")
         
@@ -30,10 +30,14 @@ class PostListViewController: UITableViewController {
             // Adding item to the storage
             for item in snapshot.children {
                 let requestItem = RequestItem(snapshot: item as! DataSnapshot)
-                newItems.append(requestItem)
+                if requestItem.status != "open" {
+                    continue
+                } else {
+                    newItems.append(requestItem)
+                }
             }
             // Reassign new data and reload view
-            self.items = newItems
+            self.openItems = newItems
             self.tableView.reloadData()
         })
     
@@ -47,9 +51,7 @@ class PostListViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-            //return items.count
-        //self.postList()
-        return items.count
+        return openItems.count
     }
 
     
@@ -58,10 +60,9 @@ class PostListViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
         
-        let requestItem = items[indexPath.row]
+        let requestItem = openItems[indexPath.row]
         
         cell.textLabel?.text = requestItem.name
-        //print(requestItem.key)
         return cell
     }
     
@@ -73,16 +74,24 @@ class PostListViewController: UITableViewController {
         if segue.identifier == "ViewPostSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! PostShownViewController
-                let tmp = items[indexPath.row]
+                let tmp = openItems[indexPath.row]
                 
                 destinationController.titletmp = tmp.name
                 destinationController.rewardtmp = tmp.price
                 destinationController.regiontmp = tmp.region
                 destinationController.detailtmp = tmp.detail
+                destinationController.keytmp = tmp.key
+                destinationController.requestertmp = tmp.requester
 
             }
         }
     }
+    
+//    override func didMove(toParentViewController parent: UIViewController?) {
+//        if (!(parent?.isEqual(self.parent) ?? false)) {
+//            print("Parent view loaded")
+//        }
+//    }
     
     @IBAction func undiwndToHomeScreen(segue:UIStoryboardSegue){
         

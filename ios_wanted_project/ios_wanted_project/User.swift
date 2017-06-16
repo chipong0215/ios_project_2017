@@ -17,12 +17,14 @@ struct User {
     let email: String
     let name: String
     let tel: String
+    let image: String
     
     init(uid: String, email: String, name: String, tel: String) {
         self.uid = uid
         self.email = email
         self.name = name
         self.tel = tel
+        self.image = ""
     }
     
     init(snapshot: DataSnapshot) {
@@ -32,6 +34,7 @@ struct User {
         uid = snapshotValue["uid"] as! String
         email = snapshotValue["email"] as! String
         tel = snapshotValue["tel"] as! String
+        image = snapshotValue["image"] as! String
     }
     
     func toAnyObject() -> Any {
@@ -40,6 +43,7 @@ struct User {
             "email": email,
             "uid": uid,
             "tel": tel,
+            "image": image
         ]
     }
 
