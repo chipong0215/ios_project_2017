@@ -25,6 +25,7 @@ class EditProfileTableViewController: UITableViewController {
    
     @IBOutlet weak var BlankCell: UITableViewCell!
     
+    @IBOutlet weak var ProfileName: UILabel!
     
     @IBOutlet weak var detail: UITextView!
     @IBOutlet weak var Email: UITextField!
@@ -83,6 +84,9 @@ class EditProfileTableViewController: UITableViewController {
         
         
         if indexPath == [0,0] {
+            
+            self.ProfileName.text = userItem?.name
+            
             //set the data here
             let cell = ImageCell
             
@@ -160,7 +164,7 @@ class EditProfileTableViewController: UITableViewController {
         let email: String = (Auth.auth().currentUser?.email)!
         let uid: String = (Auth.auth().currentUser?.uid)!
         let image = self.imageUrl
-        
+        let detailText = detail.text
         
         // Create new Object (User)
         let userRef = ref.child("\(uid)")
@@ -188,6 +192,10 @@ class EditProfileTableViewController: UITableViewController {
             let updateImage = image!
             userRef.updateChildValues(["image": updateImage])
         
+        }
+        if detailText != nil {
+            let updateDetail = detailText!
+            userRef.updateChildValues(["detail": updateDetail])
         }
         else{
             
