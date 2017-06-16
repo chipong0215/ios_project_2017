@@ -50,7 +50,6 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let status = "open"
         
         // Get current user info
-        let userEmail: String = (Auth.auth().currentUser?.email)!
         let userId: String = (Auth.auth().currentUser?.uid)!
         
         // Create reference to firebase
@@ -58,7 +57,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let key = requestItemRef.key
         
         // Create new Object (Request)
-        let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status, requester: userEmail)
+        let requestItem = RequestItem(name: name!, price: price!, region: region!, detail: detail!, status: status, requester: userId, accepter: "")
         
         // Save data to firebase (setValue)
         requestItemRef.setValue(requestItem.toAnyObject())

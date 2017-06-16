@@ -8,6 +8,8 @@
 
 import UIKit
 import Cosmos
+import Firebase
+import FirebaseDatabase
 
 class PostShownViewController: UIViewController {
    
@@ -17,14 +19,33 @@ class PostShownViewController: UIViewController {
     @IBOutlet weak var RegionLabel: UILabel!
     @IBOutlet weak var DetailTextViewLabel: UITextView!
     
-    @IBAction func AcceptBtn(_ sender: UIButton) {
-        Functions.showMsg("Apply Success!!!\nWait For Confirmatation", viewController: self)
-    }
-    
     var titletmp = ""
     var rewardtmp = ""
     var regiontmp = ""
     var detailtmp = ""
+    var keytmp = ""
+    var requestertmp = ""
+    
+    @IBAction func AcceptBtn(_ sender: UIButton) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let requestRef = ref.child("/Request/\(keytmp)")
+        let userRef = ref.child("User/\(requestertmp)/request")
+        let accepterID: String = (Auth.auth().currentUser?.uid)!
+        
+        guard requestertmp != accepterID else {
+            Functions.showMsg("You cannot accept your own request!", viewController: self)
+            return
+        }
+        // Update request data
+        requestRef.updateChildValues(["accepter": accepterID])
+        requestRef.updateChildValues(["status": "accepted"])
+        // Update user data
+        userRef.updateChildValues(["\(keytmp)": "accepted"])
+        Functions.showMsg("Apply Success!!!\nWait For Confirmatation", viewController: self)
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
