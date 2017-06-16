@@ -19,6 +19,7 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var LogoutCell: UITableViewCell!
     @IBOutlet weak var BlankCell: UITableViewCell!
     
+    @IBOutlet weak var UserName: UILabel!
     var fireUploadDic: [String:Any]?
     var userItem: User?
     
@@ -133,6 +134,9 @@ class ProfileTableViewController: UITableViewController {
             }
             //  iconView.image = UIImage(named: "gear")
             // print("im here")
+            
+            UserName.text = userItem?.name
+            
             return cell!
         }
         else if indexPath == [0,1] {
@@ -146,13 +150,12 @@ class ProfileTableViewController: UITableViewController {
             
             return cell!
         }
-        else {
+        else  {
             let cell = self.BlankCell
             
             return cell!
         }
-        
-        // Configure the cell...
+               // Configure the cell...
         
         //return cell
     }

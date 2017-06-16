@@ -22,12 +22,18 @@ class EditProfileTableViewController: UITableViewController {
     @IBOutlet weak var NameCell: UITableViewCell!
     @IBOutlet weak var MailCell: UITableViewCell!
     @IBOutlet weak var TelCell: UITableViewCell!
-    @IBOutlet weak var RegionCell: UITableViewCell!
+   
     @IBOutlet weak var BlankCell: UITableViewCell!
     
+    
+    @IBOutlet weak var detail: UITextView!
+    @IBOutlet weak var Email: UITextField!
+    @IBOutlet weak var tel: UITextField!
+    @IBOutlet weak var Name: UITextField!
     var fireUploadDic: [String:Any]?
     var imageUrl: String?
     var userItem: User?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +43,6 @@ class EditProfileTableViewController: UITableViewController {
         let databaseRef = Database.database().reference()
         
         databaseRef.child("ProfileUpload").observe(.value, with: { [weak self] (snapshot) in
-            
             if let uploadDataDic = snapshot.value as? [String:Any] {
                 self?.fireUploadDic = uploadDataDic
                 self?.tableView!.reloadData()
@@ -45,6 +50,7 @@ class EditProfileTableViewController: UITableViewController {
         })
         
         
+    
         // Observe any change in Firebase
         databaseRef.child("User").observe(.value, with: { snapshot in
             
@@ -53,20 +59,29 @@ class EditProfileTableViewController: UITableViewController {
             
             // Adding item to the storage
             for item in snapshot.children {
-                let requestItem = User(snapshot: item as! DataSnapshot)
+                let userTmp = User(snapshot: item as! DataSnapshot)
                 //print(requestItem.uid)
-                if requestItem.uid  == userID {
+                if userTmp.uid  == userID {
                     
-                    newItems = requestItem
+                    newItems = userTmp
+                    
                 }
             }
             // Reassign new data and reload view
             self.userItem = newItems
             self.tableView.reloadData()
         })
+        
+    
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+        
         if indexPath == [0,0] {
             //set the data here
             let cell = ImageCell
@@ -105,29 +120,36 @@ class EditProfileTableViewController: UITableViewController {
         else if indexPath == [0,1] {
             let cell = NameCell
             //set the data here
+             self.Name.text = userItem?.name
             return cell!
+            
         }
         else if indexPath == [0,2] {
             let cell = MailCell
+            self.Email.text = userItem?.email
+            
             return cell!
         }
         else if indexPath == [0,3] {
             let cell = TelCell
+            self.tel.text = userItem?.tel
             return cell!
         }
-        else if indexPath == [0,4] {
-            let cell = RegionCell
-            return cell!
+        
             
-        }
-        else{
+        else if indexPath == [1,0]{
             let cell = BlankCell
+            self.detail.text = userItem?.detail
             return cell!
+        }
+        else {
+            return BlankCell
         }
     }
 
 
     @IBAction func editProfileDone(_ sender: UIBarButtonItem) {
+        
         
         // Set Reference
         var ref : DatabaseReference!
@@ -139,6 +161,7 @@ class EditProfileTableViewController: UITableViewController {
         let uid: String = (Auth.auth().currentUser?.uid)!
         let image = self.imageUrl
         
+        
         // Create new Object (User)
         let userRef = ref.child("\(uid)")
         
@@ -146,7 +169,10 @@ class EditProfileTableViewController: UITableViewController {
         if name != "" {
             let updateName = name!
             userRef.updateChildValues(["name": updateName])
+        
+            
         }
+        
 //        else if userItem?.name != "" && name == "" {
 //            //
 //        }
@@ -154,13 +180,17 @@ class EditProfileTableViewController: UITableViewController {
         if tel != "" {
             let updateTel = tel!
             userRef.updateChildValues(["tel": updateTel])
+            
+            
         }
         
         if image != nil {
             let updateImage = image!
             userRef.updateChildValues(["image": updateImage])
+        
         }
         else{
+            
             // do nothing
         }
         
