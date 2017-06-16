@@ -23,6 +23,8 @@ struct RequestItem {
     let region: String
     let detail: String
     
+    
+    
     let requester: String
     let accepter: String
 
@@ -41,6 +43,10 @@ struct RequestItem {
         self.requester = requester
         self.accepter = accepter
     }
+    
+   
+    
+    
     
     init(snapshot: DataSnapshot) {
         ref = snapshot.ref
