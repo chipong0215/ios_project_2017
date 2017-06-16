@@ -17,7 +17,6 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var FirstCell: UITableViewCell!
     @IBOutlet weak var SecondCell: UITableViewCell!
     @IBOutlet weak var LogoutCell: UITableViewCell!
-    @IBOutlet weak var BlankCell: UITableViewCell!
     
     @IBOutlet weak var UserName: UILabel!
     var fireUploadDic: [String:Any]?
@@ -151,9 +150,9 @@ class ProfileTableViewController: UITableViewController {
             return cell!
         }
         else  {
-            let cell = self.BlankCell
+        
             
-            return cell!
+            return LogoutCell!
         }
                // Configure the cell...
         

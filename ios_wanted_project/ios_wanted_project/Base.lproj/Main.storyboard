@@ -431,10 +431,10 @@
                                 <rect key="frame" x="8" y="36" width="359" height="623"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="8dy-Dc-3vc">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="536"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="469.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k38-sf-Vx3">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="290.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="123" height="224"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="C5m-1X-h3l">
                                                         <rect key="frame" x="0.0" y="0.0" width="99" height="41"/>
@@ -504,42 +504,10 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="XtB-LY-67n">
-                                                        <rect key="frame" x="0.0" y="244" width="150" height="46.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4r-UC-xxR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3L-2t-ycA" customClass="CosmosView" customModule="Cosmos">
-                                                                <rect key="frame" x="0.0" y="20.5" width="150" height="26"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                                        <real key="value" value="26"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                                        <color key="value" red="1" green="0.22738561427594106" blue="0.55349056834754329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                                        <color key="value" red="1" green="0.22738561430000001" blue="0.55349056829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                                                        <color key="value" red="1" green="0.22738561430000001" blue="0.55349056829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
-                                                                        <integer key="value" value="1"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </view>
-                                                        </subviews>
-                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hgh-Xy-Ckm">
-                                                <rect key="frame" x="0.0" y="330.5" width="359" height="205.5"/>
+                                                <rect key="frame" x="0.0" y="264" width="359" height="205.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaY-7R-bUW">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
@@ -562,17 +530,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="djg-bV-wTJ">
-                                        <rect key="frame" x="201" y="556" width="158" height="67"/>
+                                        <rect key="frame" x="201" y="489.5" width="158" height="133.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQG-Zw-hjs">
-                                                <rect key="frame" x="0.0" y="0.0" width="58" height="67"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="133.5"/>
                                                 <state key="normal" title="ACCEPT"/>
                                                 <connections>
                                                     <action selector="AcceptBtn:" destination="yHS-N3-Kia" eventType="touchUpInside" id="CCU-7R-TlD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qt-X4-FMQ">
-                                                <rect key="frame" x="74" y="0.0" width="84" height="67"/>
+                                                <rect key="frame" x="74" y="0.0" width="84" height="133.5"/>
                                                 <state key="normal" title="BOOKMARK"/>
                                             </button>
                                         </subviews>
@@ -592,7 +560,6 @@
                         <barButtonItem key="backBarButtonItem" title="Item" id="D7g-ZW-SHS"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="CosmosStar" destination="l3L-2t-ycA" id="Ryd-DL-svq"/>
                         <outlet property="DetailTextViewLabel" destination="3ph-4u-m2K" id="J73-XW-goP"/>
                         <outlet property="RegionLabel" destination="ueU-r8-LtE" id="OLs-gY-Wi0"/>
                         <outlet property="RewardLabel" destination="VsC-lU-ptE" id="z5N-iq-2ox"/>
@@ -970,19 +937,19 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="設定" id="EtP-6j-ttD">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Wta-p4-3rO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Wta-p4-3rO">
                                         <rect key="frame" x="0.0" y="270.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wta-p4-3rO" id="ccf-DO-iaS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="e9z-p5-kiJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="e9z-p5-kiJ">
                                         <rect key="frame" x="0.0" y="314.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e9z-p5-kiJ" id="1WM-Ua-3zP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -990,19 +957,19 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="關於" id="g1y-aq-WjR">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0W0-hj-gv1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="0W0-hj-gv1">
                                         <rect key="frame" x="0.0" y="414.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0W0-hj-gv1" id="ogx-sA-xQr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ghn-f2-DhK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ghn-f2-DhK">
                                         <rect key="frame" x="0.0" y="458.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ghn-f2-DhK" id="tIQ-PT-hw6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1039,7 +1006,6 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="用戶" image="id-card" id="8RF-jK-RLx"/>
                     <connections>
-                        <outlet property="BlankCell" destination="Wta-p4-3rO" id="Rnd-rp-A04"/>
                         <outlet property="FirstCell" destination="W4H-Ji-WAJ" id="tzl-Ld-0tW"/>
                         <outlet property="LogoutCell" destination="hgB-2H-6bZ" id="Vs2-o4-HS5"/>
                         <outlet property="SecondCell" destination="WFD-cb-5H1" id="j56-tF-ZMx"/>
@@ -1132,35 +1098,42 @@
                         <sections>
                             <tableViewSection headerTitle="基本資料" id="dbM-sM-OMW">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="144" id="A3p-Pj-db2">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="144"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="A3p-Pj-db2">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A3p-Pj-db2" id="vrj-qS-fb5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-Un-e3s">
-                                                    <rect key="frame" x="63" y="27" width="90" height="90"/>
+                                                    <rect key="frame" x="49" y="16" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="45"/>
+                                                            <integer key="value" value="50"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXu-BW-AiI">
-                                                    <rect key="frame" x="199" y="58" width="78" height="28"/>
+                                                    <rect key="frame" x="213" y="81" width="78" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="更換照片"/>
+                                                    <state key="normal" title="更換頭像"/>
                                                     <connections>
                                                         <action selector="ChangeImage:" destination="G1i-Or-UZo" eventType="touchUpInside" id="cDN-nB-BQM"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyF-J8-TGH">
+                                                    <rect key="frame" x="203" y="21" width="164" height="52"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Aiy-HE-BNs">
-                                        <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aiy-HE-BNs" id="gTf-t4-EL6">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1184,7 +1157,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ZfY-qz-ZCC">
-                                        <rect key="frame" x="0.0" y="243.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="231.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZfY-qz-ZCC" id="4jg-9b-jNT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1208,7 +1181,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cxE-Gf-PAn">
-                                        <rect key="frame" x="0.0" y="287.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="275.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxE-Gf-PAn" id="6q9-f0-FKJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1236,7 +1209,7 @@
                             <tableViewSection headerTitle="個人簡介" id="bGR-yt-oaI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="6TI-Is-e8N">
-                                        <rect key="frame" x="0.0" y="387.5" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="375.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6TI-Is-e8N" id="NL6-9J-c6x">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -1277,6 +1250,7 @@
                         <outlet property="MailCell" destination="ZfY-qz-ZCC" id="DHU-nO-uBn"/>
                         <outlet property="Name" destination="jlB-vg-yW5" id="slQ-Qa-lG7"/>
                         <outlet property="NameCell" destination="Aiy-HE-BNs" id="Nt7-Yp-xbP"/>
+                        <outlet property="ProfileName" destination="UyF-J8-TGH" id="IlM-2z-59A"/>
                         <outlet property="TelCell" destination="cxE-Gf-PAn" id="G4c-yJ-pkT"/>
                         <outlet property="detail" destination="86v-pQ-DSi" id="YdT-As-klL"/>
                         <outlet property="iconChangeView" destination="gFX-Un-e3s" id="aov-rh-F3C"/>
@@ -1327,6 +1301,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="c5e-Pf-BsC"/>
         <segue reference="BVe-MB-CQe"/>
-        <segue reference="hZh-OI-jbr"/>
+        <segue reference="lIw-VR-EQN"/>
     </inferredMetricsTieBreakers>
 </document>
