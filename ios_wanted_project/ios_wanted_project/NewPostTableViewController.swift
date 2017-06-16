@@ -16,6 +16,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
     var regionList = ["文山區", "大安區", "新店區", "信義區", "中山區", "萬華區"]
     let regionPicker = UIPickerView()
     
+    @IBOutlet weak var requestTime: UITextField!
     @IBOutlet weak var requestName: UITextField!
     @IBOutlet weak var requestPrice: UITextField!
     @IBOutlet weak var requestRegion: UITextField!
@@ -47,6 +48,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let price = requestPrice.text
         let region = requestRegion.text
         let detail = requestDetail.text
+        let time = requestTime.text
         let status = "open"
         
         // Get current user info
