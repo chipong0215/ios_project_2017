@@ -17,7 +17,6 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var FirstCell: UITableViewCell!
     @IBOutlet weak var SecondCell: UITableViewCell!
     @IBOutlet weak var LogoutCell: UITableViewCell!
-    @IBOutlet weak var BlankCell: UITableViewCell!
     
     @IBOutlet weak var UserName: UILabel!
     var fireUploadDic: [String:Any]?
@@ -67,11 +66,14 @@ class ProfileTableViewController: UITableViewController {
     @IBAction func logoutBtn(_ sender: Any) {
         if Auth.auth().currentUser != nil {
             do {
-                try Auth.auth().signOut()                
+                try Auth.auth().signOut()
+                performSegue(withIdentifier: "LogoutUnwind", sender: self)
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
         }
+        
+        
     }    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -94,11 +96,7 @@ class ProfileTableViewController: UITableViewController {
         return 1
         }
     }
-    @IBAction func undiwndToHomeScreen(segue:UIStoryboardSegue){
-        
-    }
-
-    
+       
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         if indexPath == [0,0] {
@@ -151,9 +149,9 @@ class ProfileTableViewController: UITableViewController {
             return cell!
         }
         else  {
-            let cell = self.BlankCell
+        
             
-            return cell!
+            return LogoutCell!
         }
                // Configure the cell...
         
