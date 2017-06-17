@@ -11,6 +11,11 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
+struct Category {
+    let name: String
+    let requests: [RequestItem]
+}
+
 struct RequestItem {
     
     let ref: DatabaseReference?

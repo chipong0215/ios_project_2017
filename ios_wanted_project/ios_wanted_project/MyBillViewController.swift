@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class MyBillViewController: UITableViewController {
     
+    let categoryArray = ["Cleaning", "Fixing", "Childcare", "Pets", "Cooking", "Tutoring"]
     var myItems: [RequestItem] = []
     
     override func viewDidLoad() {
@@ -20,18 +21,27 @@ class MyBillViewController: UITableViewController {
         
         var ref: DatabaseReference!
         let uid: String = (Auth.auth().currentUser?.uid)!
-        ref = Database.database().reference(withPath: "Request")
-        ref.observe(.value, with: { snapshot in
-            var tmpItems: [RequestItem] = []
-            for item in snapshot.children {
-                let requestItem = RequestItem(snapshot: item as! DataSnapshot)
-                if requestItem.requester == uid {
-                    tmpItems.append(requestItem)
+        
+        // For loop (items in ALL category)
+        for category in categoryArray {
+            print(category)
+            ref = Database.database().reference(withPath: "Request").child(category)
+        
+            ref.observe(.value, with: { snapshot in
+                // For loop (items in EACH category)
+                var tmpEachItems: [RequestItem] = []
+                for item in snapshot.children {
+                    let requestItem = RequestItem(snapshot: item as! DataSnapshot)
+                    if requestItem.requester == uid {
+                        tmpEachItems.append(requestItem)
+                    }
                 }
-            }
-            self.myItems = tmpItems
-            self.tableView.reloadData()
-        })
+                print(tmpEachItems)
+                self.myItems += tmpEachItems
+                self.tableView.reloadData()
+            })
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
