@@ -356,6 +356,10 @@
                                                 <state key="normal" title="煮食" image="chef-hat">
                                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r1g-ht-Ab6"/>
+                                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1005" id="fgP-Aq-gbk"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1004" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gu-7a-aoO">
                                                 <rect key="frame" x="101" y="0.0" width="101" height="120"/>
@@ -364,6 +368,10 @@
                                                 <state key="normal" title="寵物" image="dog-food">
                                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wbc-Td-zJM"/>
+                                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1004" id="5Lw-aS-nhT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1006" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrT-rD-19C">
                                                 <rect key="frame" x="202" y="0.0" width="101" height="120"/>
@@ -372,6 +380,10 @@
                                                 <state key="normal" title="家教" image="book">
                                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="CategoryBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Cy-SN-9P1"/>
+                                                    <segue destination="BvM-6i-oAh" kind="show" identifier="Btn1006" id="pPW-xk-F2o"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -456,13 +468,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AZU-Rw-e3D">
                                                         <rect key="frame" x="0.0" y="61" width="104" height="41"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Time Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pos-ir-pcW">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pos-ir-pcW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="TIme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3r-A6-K61">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3r-A6-K61">
                                                                 <rect key="frame" x="0.0" y="20.5" width="104" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -490,13 +502,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mev-ZG-oq1">
                                                         <rect key="frame" x="0.0" y="183" width="118.5" height="41"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Region" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFJ-wc-nsK">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFJ-wc-nsK">
                                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Region Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueU-r8-LtE">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueU-r8-LtE">
                                                                 <rect key="frame" x="0.0" y="20.5" width="118.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -785,7 +797,14 @@
                             <outlet property="delegate" destination="QwF-6L-Qed" id="iaJ-fm-YaK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Sq0-7x-awE"/>
+                    <navigationItem key="navigationItem" id="Sq0-7x-awE">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" style="done" id="AkH-Wh-XqY">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="dismissBtn:" destination="QwF-6L-Qed" id="E00-B0-X0S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="requestDetail" destination="PBy-Oy-W0c" id="hh1-Yb-LWF"/>
                         <outlet property="requestName" destination="6nF-ib-g6c" id="DHU-5M-oTu"/>
@@ -1219,10 +1238,10 @@
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" id="FsL-t9-0qK">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="9Vj-rc-c0Q">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" style="done" id="fEz-uU-Tif">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="WiX-8d-arj" kind="unwind" identifier="DoneEdit" unwindAction="undiwndToHomeScreenWithSegue:" id="Zh0-b6-hgW"/>
+                                <action selector="editProfileCancel:" destination="G1i-Or-UZo" id="aSn-MC-lWk"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="F9f-Ed-fcy">
@@ -1249,7 +1268,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMg-AD-Ir8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="WiX-8d-arj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5080.8000000000002" y="1045.7271364317842"/>
         </scene>
@@ -1288,8 +1306,8 @@
         <image name="wrench" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="agK-A3-Bo1"/>
+        <segue reference="7kO-be-MxY"/>
         <segue reference="c5e-Pf-BsC"/>
-        <segue reference="lIw-VR-EQN"/>
+        <segue reference="agK-A3-Bo1"/>
     </inferredMetricsTieBreakers>
 </document>

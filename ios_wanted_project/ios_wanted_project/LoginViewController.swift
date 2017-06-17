@@ -43,20 +43,6 @@ class LoginViewController: UIViewController {
                 // 登入成功並顯示已登入
             else{
                 Functions.showMsgSegue("Welcome Back", viewController: self, segueIdentifier: "LoginMainSegue")
-                var testRef : DatabaseReference!
-                testRef = Database.database().reference(withPath: "User")
-                testRef.observe(.value, with: { snapshot in
-                    if snapshot.hasChild( Auth.auth().currentUser!.uid) != true {
-                        let userId: String = (Auth.auth().currentUser?.uid)!
-                        let userEmail: String = (Auth.auth().currentUser?.email)!
-                        let userRef = testRef.child("\(userId)")
-                        userRef.updateChildValues(["name": ""])
-                        userRef.updateChildValues(["tel": ""])
-                        userRef.updateChildValues(["image": ""])
-                        userRef.updateChildValues(["uid": userId])
-                        userRef.updateChildValues(["email": userEmail])
-                    }
-                })
             }
         }
     }
@@ -69,9 +55,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-           }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//    }
 
 }

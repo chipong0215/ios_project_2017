@@ -48,23 +48,6 @@ class SignUpViewController: UIViewController {
             // 註冊成功並顯示已登入
             self.showMsg("已登入")
         }
-        
-//        var ref : DatabaseReference!
-//        ref = Database.database().reference(withPath: "User")
-//        // Create new Object (Request)
-//        let regUid: String = (Auth.auth().currentUser?.uid)!
-//        let regEmail: String = (Auth.auth().currentUser?.email)!
-//        let userRef = ref.child("\(regUid)")
-//        
-//        // Save data to firebase (setValue)
-//        userRef.updateChildValues(["name": ""])
-//        userRef.updateChildValues(["tel": ""])
-//        userRef.updateChildValues(["image": ""])
-//        userRef.updateChildValues(["email": regEmail])
-//        userRef.updateChildValues(["uid": regUid])
-
-        
-        
     }
     
     

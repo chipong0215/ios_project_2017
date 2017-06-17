@@ -31,6 +31,7 @@ class EditProfileTableViewController: UITableViewController {
     @IBOutlet weak var Email: UITextField!
     @IBOutlet weak var tel: UITextField!
     @IBOutlet weak var Name: UITextField!
+    
     var fireUploadDic: [String:Any]?
     var imageUrl: String?
     var userItem: User?
@@ -80,9 +81,6 @@ class EditProfileTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        
-        
         if indexPath == [0,0] {
             
             self.ProfileName.text = userItem?.name
@@ -123,26 +121,25 @@ class EditProfileTableViewController: UITableViewController {
         }
         else if indexPath == [0,1] {
             let cell = NameCell
-            //set the data here
-             self.Name.text = userItem?.name
-            return cell!
             
+            self.Name.text = userItem?.name
+            return cell!
         }
         else if indexPath == [0,2] {
             let cell = MailCell
-            self.Email.text = userItem?.email
             
+            self.Email.text = userItem?.email
             return cell!
         }
         else if indexPath == [0,3] {
             let cell = TelCell
+            
             self.tel.text = userItem?.tel
             return cell!
         }
-        
-            
         else if indexPath == [1,0]{
             let cell = BlankCell
+            
             self.detail.text = userItem?.detail
             return cell!
         }
@@ -151,9 +148,11 @@ class EditProfileTableViewController: UITableViewController {
         }
     }
 
+    @IBAction func editProfileCancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func editProfileDone(_ sender: UIBarButtonItem) {
-        
         
         // Set Reference
         var ref : DatabaseReference!
@@ -173,26 +172,18 @@ class EditProfileTableViewController: UITableViewController {
         if name != "" {
             let updateName = name!
             userRef.updateChildValues(["name": updateName])
-        
-            
         }
         
-//        else if userItem?.name != "" && name == "" {
-//            //
-//        }
-
         if tel != "" {
             let updateTel = tel!
             userRef.updateChildValues(["tel": updateTel])
-            
-            
         }
         
         if image != nil {
             let updateImage = image!
             userRef.updateChildValues(["image": updateImage])
-        
         }
+        
         if detailText != nil {
             let updateDetail = detailText!
             userRef.updateChildValues(["detail": updateDetail])

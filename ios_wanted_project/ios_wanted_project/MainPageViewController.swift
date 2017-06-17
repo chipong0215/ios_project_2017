@@ -11,9 +11,11 @@ import Firebase
 import FirebaseAuth
 
 class MainPageViewController: UIViewController {
-    static var btnName : String = ""
     
     @IBOutlet weak var a: UIImageView!
+    
+    static var btnName : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,11 +30,28 @@ class MainPageViewController: UIViewController {
 //    
         
         //get uid test
-
         let userID : String = (Auth.auth().currentUser?.uid)!
         let userEmail: String = (Auth.auth().currentUser?.email)!
         print("Current user ID is： " + userID)
         print("Current user email is： " + userEmail)
+        
+        var testRef : DatabaseReference!
+        testRef = Database.database().reference(withPath: "User")
+        testRef.observe(.value, with: { snapshot in
+            if snapshot.hasChild(Auth.auth().currentUser!.uid) != true {
+                let userRef = testRef.child(userID)
+                //print(userRef)
+                
+                // Create new Object (Request)
+                let userInit = User(uid: userID, email: userEmail, name: "", tel: "")
+                
+                //print("TEST:")
+                //print(userInit)
+                
+                // Save data to firebase (setValue)
+                userRef.setValue(userInit.toAnyObject())
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {

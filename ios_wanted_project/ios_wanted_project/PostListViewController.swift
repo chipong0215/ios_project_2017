@@ -18,7 +18,9 @@ class PostListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
+        self.navigationItem.title = MainPageViewController.btnName
+        
         var ref: DatabaseReference!
         ref = Database.database().reference(withPath: "Request").child(PostListViewController.category!)
         
@@ -57,7 +59,6 @@ class PostListViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        self.navigationItem.title = MainPageViewController.btnName
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
         

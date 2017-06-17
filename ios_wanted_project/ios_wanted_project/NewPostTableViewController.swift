@@ -22,6 +22,10 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
     @IBOutlet weak var requestRegion: UITextField!
     @IBOutlet weak var requestDetail: UITextField!
     
+    @IBAction func dismissBtn(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
