@@ -31,8 +31,8 @@ class PostShownViewController: UIViewController {
     @IBAction func AcceptBtn(_ sender: UIButton) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        let requestRef = ref.child("/Request/\(PostListViewController.category!)\(keytmp)")
-        let userRef = ref.child("User/\(requestertmp)/request")
+        let requestRef = ref.child("/Request/\(PostListViewController.category!)/\(keytmp)")
+        let userRef = ref.child("/User/\(requestertmp)/request")
         let accepterID: String = (Auth.auth().currentUser?.uid)!
         
         guard requestertmp != accepterID else {
@@ -51,7 +51,6 @@ class PostShownViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CosmosStar.rating = 1
         self.navigationItem.title = MainPageViewController.btnName;
         
         TitleLabel.text = titletmp
