@@ -47,16 +47,36 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func ResetBtnClicked(_ sender: UIButton) {
+   
+    
+    
+    
+    func switchStoryboard() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Main") as UIViewController
         
+        self.present(controller, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
+        
+        Auth.auth().addStateDidChangeListener() { auth, user in
+            
+            if user != nil {
+                
+                self.switchStoryboard()
+            }
+        
     }
+        
+        
+        
+        
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //    }
 
+}
 }

@@ -24,7 +24,7 @@ class ProfileTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
+//        self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
         
         let databaseRef = Database.database().reference()
         let userID : String = (Auth.auth().currentUser?.uid)!
