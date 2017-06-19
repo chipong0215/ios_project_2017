@@ -18,6 +18,7 @@
 		D2AD4A5C1EE954B90090148D /* RequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AD4A5B1EE954B90090148D /* RequestItem.swift */; };
 		D2D9EEC41EED14FF0013C87D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9EEC31EED14FF0013C87D /* User.swift */; };
 		F903FBC11EE7AD7E0029E517 /* reference in Resources */ = {isa = PBXBuildFile; fileRef = F903FBC01EE7AD7E0029E517 /* reference */; };
+		F94C93BA1EF7ECD900BB90C4 /* BillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94C93B91EF7ECD900BB90C4 /* BillDetailViewController.swift */; };
 		F9A9C61F1ED3359000E6C8A7 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A9C61E1ED3359000E6C8A7 /* PostListViewController.swift */; };
 		F9BC5BA01EB07A83004769DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC5B9F1EB07A83004769DC /* AppDelegate.swift */; };
 		F9BC5BA21EB07A83004769DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC5BA11EB07A83004769DC /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 		D2D9EEC31EED14FF0013C87D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E38496AC04B905B46A06253F /* Pods_ios_wanted_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_wanted_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F903FBC01EE7AD7E0029E517 /* reference */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = reference; sourceTree = "<group>"; };
+		F94C93B91EF7ECD900BB90C4 /* BillDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillDetailViewController.swift; sourceTree = "<group>"; };
 		F9A9C61E1ED3359000E6C8A7 /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		F9BC5B9C1EB07A83004769DC /* ios_wanted_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_wanted_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9BC5B9F1EB07A83004769DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				0410BDE11EE9581F008DC7D7 /* NewPostTableViewController.swift */,
 				F9DA451D1ED430E000AA6487 /* PostShownViewController.swift */,
 				F9DA45211ED45ADF00AA6487 /* MyBillViewController.swift */,
+				F94C93B91EF7ECD900BB90C4 /* BillDetailViewController.swift */,
 				F9DA45231ED4AE5500AA6487 /* FunctionContainer.swift */,
 				0410BDDF1EE86244008DC7D7 /* ProfileTableViewController.swift */,
 				04B204EF1EEC68A30011A8FD /* EditProfileTableViewController.swift */,
@@ -281,6 +284,7 @@
 				F9DA45241ED4AE5500AA6487 /* FunctionContainer.swift in Sources */,
 				F9A9C61F1ED3359000E6C8A7 /* PostListViewController.swift in Sources */,
 				0410BDE01EE86244008DC7D7 /* ProfileTableViewController.swift in Sources */,
+				F94C93BA1EF7ECD900BB90C4 /* BillDetailViewController.swift in Sources */,
 				F9BC5BA01EB07A83004769DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
