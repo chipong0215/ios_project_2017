@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         
+        
     }
     
     @IBAction func createAccBtnClicked(_ sender: UIButton) {
