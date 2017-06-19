@@ -102,9 +102,6 @@ class MyBillViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let backItem = UIBarButtonItem()
-//        backItem.title = "Back"
-//        navigationItem.backBarButtonItem = backItem     // This will show in the next view controller being pushed
         
         if segue.identifier == "DetailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {

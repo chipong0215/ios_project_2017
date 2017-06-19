@@ -14,8 +14,12 @@ class BillDetailViewController: UIViewController {
     @IBOutlet weak var BillDetailPic: UIImageView!
     @IBOutlet weak var HelperName: UILabel!
     
-    var billdetailpic: UIImageView?
+    
+    let categoryArray = ["Cleaning", "Fixing", "Childcare", "Pets", "Cooking", "Tutoring"]
+    var keytmp = ""
+    var requestertmp = ""
     var helpername = ""
+    var categorytmp = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,20 @@ class BillDetailViewController: UIViewController {
     
 
     @IBAction func GoProfileBtn(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func AcceptByRequestorBtn(_ sender: UIButton) {
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            let requestRef = ref.child("/Request/\(categorytmp)/\(keytmp)")
+            let userRef = ref.child("/User/\(requestertmp)/request")
+        
+            // Update request data
+            requestRef.updateChildValues(["status": "working"])
+            // Update user data
+            userRef.updateChildValues(["\(keytmp)": "working"])
+            Functions.showMsg("You have successfully found a helper!", viewController: self)
         
     }
     
