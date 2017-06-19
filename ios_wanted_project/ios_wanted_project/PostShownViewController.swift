@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import Cosmos
 import Firebase
 import FirebaseDatabase
 
 class PostShownViewController: UIViewController {
    
-    @IBOutlet weak var CosmosStar: CosmosView!
+   
+    
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var RewardLabel: UILabel!
     @IBOutlet weak var RegionLabel: UILabel!
