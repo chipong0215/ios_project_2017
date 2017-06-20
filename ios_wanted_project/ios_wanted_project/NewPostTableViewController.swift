@@ -40,9 +40,10 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
     @IBAction func addPostButton(_ sender: AnyObject) {
         // Set Reference
         var ref : DatabaseReference!
-        ref = Database.database().reference(withPath: "Request").child(PostListViewController.category!)
+        ref = Database.database().reference(withPath: "Request")
         
         // Get info from user's input
+        let category = PostListViewController().category!
         let name = requestName.text
         let price = requestPrice.text
         let region = requestRegion.text
@@ -58,7 +59,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         let key = requestItemRef.key
         
         // Create new Object (Request)
-        let requestItem = RequestItem(name: name!, price: price!, region: region!,time: time!, detail: detail!, status: status, requester: userId, accepter: "")
+        let requestItem = RequestItem(name: name!, price: price!, region: region!,time: time!, detail: detail!, status: status, requester: userId, accepter: "", category: category)
         
         // Save data to firebase (setValue)
         requestItemRef.setValue(requestItem.toAnyObject())

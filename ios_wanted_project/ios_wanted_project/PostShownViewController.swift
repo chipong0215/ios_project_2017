@@ -31,7 +31,7 @@ class PostShownViewController: UIViewController {
     @IBAction func AcceptBtn(_ sender: UIButton) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        let requestRef = ref.child("/Request/\(PostListViewController.category!)/\(keytmp)")
+        let requestRef = ref.child("/Request/\(keytmp)")
         let userRef = ref.child("/User/\(requestertmp)/request")
         let accepterID: String = (Auth.auth().currentUser?.uid)!
         

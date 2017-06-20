@@ -29,12 +29,10 @@ struct RequestItem {
     let detail: String
     var category: String
     
-    
-    
     let requester: String
     let accepter: String
 
-    init(name: String, price: String, region: String, time: String, detail: String, status: String, requester: String, accepter: String, category: String = "") {
+    init(name: String, price: String, region: String, time: String, detail: String, status: String, requester: String, accepter: String, category: String) {
         
         self.ref = nil
         self.key = ""
@@ -68,7 +66,7 @@ struct RequestItem {
         time = snapshotValue["time"] as! String
         requester = snapshotValue["requester"] as! String
         accepter = snapshotValue["accepter"] as! String
-        category = ""
+        category = snapshotValue["category"] as! String
     }
     
     func toAnyObject() -> Any {
@@ -80,7 +78,8 @@ struct RequestItem {
             "detail": detail,
             "requester": requester,
             "accepter": accepter,
-            "time": time
+            "time": time,
+            "category": category
         ]
     }
     

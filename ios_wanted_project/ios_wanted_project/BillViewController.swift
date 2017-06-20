@@ -49,35 +49,28 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
 
         var ref: DatabaseReference!
+        ref = Database.database().reference(withPath: "Request")
         let uid: String = (Auth.auth().currentUser?.uid)!
         
-        for category in categoryArray {
-            ref = Database.database().reference(withPath: "Request").child(category)
-            ref.observe(.value, with: { snapshot in
-                // For loop (items in EACH category)
-                var tmpEachItems: [RequestItem] = []
-                for item in snapshot.children {
-                    var requestItem = RequestItem(snapshot: item as! DataSnapshot)
-                    if requestItem.requester == uid {
-                        requestItem.category = category
-                        tmpEachItems.append(requestItem)
-                    }
+        // Observe any change in Firebase
+        ref.observe(.value, with: { snapshot in
+            
+            // Create a storage for latest data
+            var tmpEachItems: [RequestItem] = []
+            
+            // Adding item to the storage
+            for item in snapshot.children {
+                let requestItem = RequestItem(snapshot: item as! DataSnapshot)
+                if requestItem.requester == uid {
+                    tmpEachItems.append(requestItem)
                 }
-                self.myItems += tmpEachItems
-                self.TableView.reloadData()
-            })
-        }
-        
-//        for index in 0 ..< myItems.count {
-//            if myItems[index].status == "accept" {
-//                acCount += 1
-//            }
-//        }
+            }
+            // Reassign new data and reload view
+            self.myItems = tmpEachItems
+            self.TableView.reloadData()
+        })
         
     }
-
-    
-    
     
     
     
@@ -160,7 +153,6 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 destinationController.requestertmp = tmp.requester
                 destinationController.keytmp = tmp.key
-                destinationController.categorytmp = tmp.category
                 
                 for index in 0 ..< (itemTmp?.count)! {
                     if tmp.accepter == itemTmp?[index].uid {

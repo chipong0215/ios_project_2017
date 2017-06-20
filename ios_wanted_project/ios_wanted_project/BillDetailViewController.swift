@@ -19,7 +19,6 @@ class BillDetailViewController: UIViewController {
     var keytmp = ""
     var requestertmp = ""
     var helpername = ""
-    var categorytmp = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,7 @@ class BillDetailViewController: UIViewController {
     @IBAction func AcceptByRequestorBtn(_ sender: UIButton) {
             var ref: DatabaseReference!
             ref = Database.database().reference()
-            let requestRef = ref.child("/Request/\(categorytmp)/\(keytmp)")
+            let requestRef = ref.child("/Request/\(keytmp)")
             let userRef = ref.child("/User/\(requestertmp)/request")
         
             // Update request data
