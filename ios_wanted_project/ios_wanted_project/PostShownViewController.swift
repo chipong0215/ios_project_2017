@@ -20,6 +20,7 @@ class PostShownViewController: UIViewController {
     @IBOutlet weak var DetailTextViewLabel: UITextView!
     @IBOutlet weak var TimeLabel: UILabel!
     
+    
     var titletmp = ""
     var rewardtmp = ""
     var regiontmp = ""
