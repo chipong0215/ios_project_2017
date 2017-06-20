@@ -19,12 +19,10 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
     var myItems: [RequestItem] = []
     var acceptItems: [RequestItem] = []
     
-    var acceptorTmp: String?
     var fileUploadDic: [String:Any]?
     var itemTmp: [User]?
     
     @IBOutlet weak var Control: UISegmentedControl!
-    
     @IBOutlet weak var TableView: UITableView!
     
     override func viewDidLoad() {
@@ -55,8 +53,6 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
 
         // My Request
-        
-        
         // Observe any change in Firebase
         ref.observe(.value, with: { snapshot in
             
@@ -121,9 +117,11 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             break
         case 1:
-            let requestItem = myItems[indexPath.row]
+            let requestItem = acceptItems[indexPath.row]
+            print(acceptItems[indexPath.row].name)
+            print(requestItem.name)
             cell.textLabel?.text = requestItem.name
-            if requestItem.status == "open"{
+            if requestItem.status == "accepted"{
                 cell.detailTextLabel?.textColor = UIColor.red
                 cell.detailTextLabel?.text = requestItem.status.uppercased()
             }
@@ -134,6 +132,7 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             break
         case 2:
             cell.textLabel?.text = privatelist3[indexPath.row]
+            cell.detailTextLabel?.text = "you mom"
             break
         default :
             break
@@ -155,7 +154,7 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         break
        case 1:
-        returnValue = privatelist2.count
+        returnValue = self.acceptItems.count
         break
        case 2:
         returnValue = privatelist3.count
