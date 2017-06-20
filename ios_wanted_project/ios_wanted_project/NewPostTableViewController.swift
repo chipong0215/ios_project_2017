@@ -14,6 +14,7 @@ import FirebaseDatabase
 class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var regionList = ["文山區", "大安區", "新店區", "信義區", "中山區", "萬華區"]
+    var categorytmp = ""
     let regionPicker = UIPickerView()
 
     @IBOutlet weak var requestTime: UITextField!
@@ -43,7 +44,7 @@ class NewPostTableViewController: UITableViewController, UIPickerViewDelegate, U
         ref = Database.database().reference(withPath: "Request")
         
         // Get info from user's input
-        let category = PostListViewController().category!
+        let category = PostListViewController.category!
         let name = requestName.text
         let price = requestPrice.text
         let region = requestRegion.text

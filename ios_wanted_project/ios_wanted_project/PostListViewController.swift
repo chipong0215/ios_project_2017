@@ -14,7 +14,7 @@ import FirebaseAuth
 class PostListViewController: UITableViewController {
     
     var openItems: [RequestItem] = []
-    var category: String?
+    static var category: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class PostListViewController: UITableViewController {
             // Adding item to the storage
             for item in snapshot.children {
                 let requestItem = RequestItem(snapshot: item as! DataSnapshot)
-                if requestItem.status != "open" {
+                if requestItem.status != "open" || requestItem.category != PostListViewController.category{
                     continue
                 } else {
                     newItems.append(requestItem)
@@ -85,8 +85,6 @@ class PostListViewController: UITableViewController {
                 destinationController.keytmp = tmp.key
                 destinationController.requestertmp = tmp.requester
                 destinationController.timetmp = tmp.time
-                
-
             }
         }
     }

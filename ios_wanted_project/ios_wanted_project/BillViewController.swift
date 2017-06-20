@@ -17,6 +17,8 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let categoryArray = ["Cleaning", "Fixing", "Childcare", "Pets", "Cooking", "Tutoring"]
     var myItems: [RequestItem] = []
+    var acceptItems: [RequestItem] = []
+    
     var acceptorTmp: String?
     var fileUploadDic: [String:Any]?
     var itemTmp: [User]?
@@ -26,6 +28,10 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var TableView: UITableView!
     
     override func viewDidLoad() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference(withPath: "Request")
+        let uid: String = (Auth.auth().currentUser?.uid)!
+        
         super.viewDidLoad()
         
         let databaseRef = Database.database().reference()
@@ -48,9 +54,8 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             //print(newItems)
         })
 
-        var ref: DatabaseReference!
-        ref = Database.database().reference(withPath: "Request")
-        let uid: String = (Auth.auth().currentUser?.uid)!
+        // My Request
+        
         
         // Observe any change in Firebase
         ref.observe(.value, with: { snapshot in
@@ -70,6 +75,22 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.TableView.reloadData()
         })
         
+        // My Accept
+        ref.observe(.value, with: { snapshot in
+            
+            var tmpEachItems: [RequestItem] = []
+            
+            // Adding item to the storage
+            for item in snapshot.children {
+                let requestItem = RequestItem(snapshot: item as! DataSnapshot)
+                if requestItem.accepter == uid {
+                    tmpEachItems.append(requestItem)
+                }
+            }
+            // Reassign new data and reload view
+            self.acceptItems = tmpEachItems
+            self.TableView.reloadData()
+        })
     }
     
     
@@ -100,7 +121,16 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             break
         case 1:
-            cell.textLabel?.text = privatelist2[indexPath.row]
+            let requestItem = myItems[indexPath.row]
+            cell.textLabel?.text = requestItem.name
+            if requestItem.status == "open"{
+                cell.detailTextLabel?.textColor = UIColor.red
+                cell.detailTextLabel?.text = requestItem.status.uppercased()
+            }
+            else{
+                cell.detailTextLabel?.textColor = UIColor.green
+                cell.detailTextLabel?.text = requestItem.status.uppercased()
+            }
             break
         case 2:
             cell.textLabel?.text = privatelist3[indexPath.row]
