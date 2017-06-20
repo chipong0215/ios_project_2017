@@ -10,14 +10,11 @@ import UIKit
 import Firebase
 
 class BillViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
-    var privatelist1 = ["11","22"]
-    var privatelist2 = ["111","222"]
-    var privatelist3 = ["1111","2222"]
     
-    let categoryArray = ["Cleaning", "Fixing", "Childcare", "Pets", "Cooking", "Tutoring"]
+    //let categoryArray = ["Cleaning", "Fixing", "Childcare", "Pets", "Cooking", "Tutoring"]
     var myItems: [RequestItem] = []
     var acceptItems: [RequestItem] = []
+    var finishItems: [RequestItem] = []
     
     var fileUploadDic: [String:Any]?
     var itemTmp: [User]?
@@ -58,16 +55,19 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // Create a storage for latest data
             var tmpEachItems: [RequestItem] = []
+            //var tmpEachItems2: [RequestItem] = []
             
             // Adding item to the storage
             for item in snapshot.children {
                 let requestItem = RequestItem(snapshot: item as! DataSnapshot)
-                if requestItem.requester == uid {
+                if requestItem.requester == uid && requestItem.status != "finish"{
                     tmpEachItems.append(requestItem)
                 }
+                
             }
             // Reassign new data and reload view
             self.myItems = tmpEachItems
+            //self.finishItems = tmpEachItems2
             self.TableView.reloadData()
         })
         
@@ -85,6 +85,22 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             // Reassign new data and reload view
             self.acceptItems = tmpEachItems
+            self.TableView.reloadData()
+        })
+        
+        // My Finish
+        ref.observe(.value, with: { snapshot in
+            var tmpEachItems: [RequestItem] = []
+            
+            // Adding item to the storage
+            for item in snapshot.children {
+                let requestItem = RequestItem(snapshot: item as! DataSnapshot)
+                if requestItem.requester == uid && requestItem.status == "finish"{
+                    tmpEachItems.append(requestItem)
+                }
+            }
+            // Reassign new data and reload view
+            self.finishItems = tmpEachItems
             self.TableView.reloadData()
         })
     }
@@ -106,23 +122,30 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
         {
         case 0:
             let requestItem = myItems[indexPath.row]
-            cell.textLabel?.text = requestItem.name
             if requestItem.status == "open"{
+                cell.textLabel?.text = requestItem.name
+
                 cell.detailTextLabel?.textColor = UIColor.red
                 cell.detailTextLabel?.text = requestItem.status.uppercased()
             }
-            else{
+            else if requestItem.status == "working"{
+                cell.textLabel?.text = requestItem.name
+
                 cell.detailTextLabel?.textColor = UIColor.green
+                cell.detailTextLabel?.text = requestItem.status.uppercased()
+            }
+            else if requestItem.status == "accepted"{
+                cell.textLabel?.text = requestItem.name
+
+                cell.detailTextLabel?.textColor = UIColor.orange
                 cell.detailTextLabel?.text = requestItem.status.uppercased()
             }
             break
         case 1:
             let requestItem = acceptItems[indexPath.row]
-            print(acceptItems[indexPath.row].name)
-            print(requestItem.name)
             cell.textLabel?.text = requestItem.name
             if requestItem.status == "accepted"{
-                cell.detailTextLabel?.textColor = UIColor.red
+                cell.detailTextLabel?.textColor = UIColor.orange
                 cell.detailTextLabel?.text = requestItem.status.uppercased()
             }
             else{
@@ -131,8 +154,11 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             break
         case 2:
-            cell.textLabel?.text = privatelist3[indexPath.row]
-            cell.detailTextLabel?.text = "you mom"
+            let requestItem = finishItems[indexPath.row]
+            cell.textLabel?.text = requestItem.name
+            cell.detailTextLabel?.textColor = UIColor.lightGray
+            cell.detailTextLabel?.text = requestItem.status.uppercased()
+            
             break
         default :
             break
@@ -157,7 +183,7 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
         returnValue = self.acceptItems.count
         break
        case 2:
-        returnValue = privatelist3.count
+        returnValue = self.finishItems.count
         break
        default :
         break
@@ -174,42 +200,144 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "DetailSegue" {
-            if let indexPath = TableView.indexPathForSelectedRow {
-                let destinationController = segue.destination as! BillDetailViewController
-                let tmp = myItems[indexPath.row]
-                var accepterTmp: User?
-                
-                destinationController.requestertmp = tmp.requester
-                destinationController.keytmp = tmp.key
-                
-                for index in 0 ..< (itemTmp?.count)! {
-                    if tmp.accepter == itemTmp?[index].uid {
-                        accepterTmp = itemTmp?[index]
-                    }
-                }
-                
-                if let dataDic = fileUploadDic {
-                    if let imageUrlString = dataDic[(accepterTmp?.image)!] as? String {
-                        if let imageUrl = URL(string: imageUrlString) {
-                            URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
-                                if error != nil {
-                                    print("Download Image Task Fail: \(error!.localizedDescription)")
-                                }
-                                else if let imageData = data {
-                                    DispatchQueue.main.async {
-                                        destinationController.BillDetailPic.image = UIImage(data: imageData)
-                                    }
-                                }
-                            }).resume()
+        switch(Control.selectedSegmentIndex)
+        {
+        case 0:
+            if segue.identifier == "DetailSegue" {
+                if let indexPath = TableView.indexPathForSelectedRow {
+                    let destinationController = segue.destination as! BillDetailViewController
+                    let tmp = myItems[indexPath.row]
+                    var accepterTmp: User?
+                    
+                    for index in 0 ..< (itemTmp?.count)! {
+                        if tmp.accepter == itemTmp?[index].uid {
+                            accepterTmp = itemTmp?[index]
                         }
                     }
+                    
+                    if let dataDic = fileUploadDic {
+                        if let imageUrlString = dataDic[(accepterTmp?.image)!] as? String {
+                            if let imageUrl = URL(string: imageUrlString) {
+                                URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
+                                    if error != nil {
+                                        print("Download Image Task Fail: \(error!.localizedDescription)")
+                                    }
+                                    else if let imageData = data {
+                                        DispatchQueue.main.async {
+                                            destinationController.BillDetailPic.image = UIImage(data: imageData)
+                                        }
+                                    }
+                                }).resume()
+                            }
+                        }
+                    }
+                    
+                    if tmp.status == "working" {
+                        print(tmp.status)
+                        destinationController.working_count = 1
+                    }
+                    else {
+                        destinationController.working_count = 0
+                    }
+                    
+                    destinationController.helpername = (accepterTmp?.name)!
+                    destinationController.requestertmp = tmp.requester
+                    destinationController.keytmp = tmp.key
+                    
                 }
-                
-                destinationController.helpername = (accepterTmp?.name)!
             }
+            break
+        case 1:
+            if segue.identifier == "DetailSegue" {
+                if let indexPath = TableView.indexPathForSelectedRow {
+                    let destinationController = segue.destination as! BillDetailViewController
+                    let tmp = acceptItems[indexPath.row]
+                    var accepterTmp: User?
+                    
+                    for index in 0 ..< (itemTmp?.count)! {
+                        if tmp.accepter == itemTmp?[index].uid {
+                            accepterTmp = itemTmp?[index]
+                        }
+                    }
+                    
+                    if let dataDic = fileUploadDic {
+                        if let imageUrlString = dataDic[(accepterTmp?.image)!] as? String {
+                            if let imageUrl = URL(string: imageUrlString) {
+                                URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
+                                    if error != nil {
+                                        print("Download Image Task Fail: \(error!.localizedDescription)")
+                                    }
+                                    else if let imageData = data {
+                                        DispatchQueue.main.async {
+                                            destinationController.BillDetailPic.image = UIImage(data: imageData)
+                                        }
+                                    }
+                                }).resume()
+                            }
+                        }
+                    }
+                    
+                    if tmp.status == "accepted" {
+                        print(tmp.status)
+                        destinationController.working_count = 1
+                    }
+                    
+                    
+                    destinationController.helpername = (accepterTmp?.name)!
+                    destinationController.requestertmp = tmp.requester
+                    destinationController.keytmp = tmp.key
+                    
+                }
+            }
+
+            break
+        case 2:
+            if segue.identifier == "DetailSegue" {
+                if let indexPath = TableView.indexPathForSelectedRow {
+                    let destinationController = segue.destination as! BillDetailViewController
+                    let tmp = finishItems[indexPath.row]
+                    var accepterTmp: User?
+                    
+                    for index in 0 ..< (itemTmp?.count)! {
+                        if tmp.accepter == itemTmp?[index].uid {
+                            accepterTmp = itemTmp?[index]
+                        }
+                    }
+                    
+                    if let dataDic = fileUploadDic {
+                        if let imageUrlString = dataDic[(accepterTmp?.image)!] as? String {
+                            if let imageUrl = URL(string: imageUrlString) {
+                                URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
+                                    if error != nil {
+                                        print("Download Image Task Fail: \(error!.localizedDescription)")
+                                    }
+                                    else if let imageData = data {
+                                        DispatchQueue.main.async {
+                                            destinationController.BillDetailPic.image = UIImage(data: imageData)
+                                        }
+                                    }
+                                }).resume()
+                            }
+                        }
+                    }
+                    
+                    if tmp.status == "finish" {
+                        print(tmp.status)
+                        destinationController.working_count = 2
+                    }
+                    
+                    
+                    destinationController.helpername = (accepterTmp?.name)!
+                    destinationController.requestertmp = tmp.requester
+                    destinationController.keytmp = tmp.key
+                    
+                }
+            }
+
+            break
+        default :
+            break
         }
+        
     }
-
-
 }
