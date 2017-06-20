@@ -205,7 +205,7 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 0:
             if segue.identifier == "DetailSegue" {
                 if let indexPath = TableView.indexPathForSelectedRow {
-                    let destinationController = segue.destination as! BillDetailViewController
+                    let destinationController = segue.destination as! JobDetailViewController
                     let tmp = myItems[indexPath.row]
                     var accepterTmp: User?
                     
@@ -214,43 +214,34 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
                             accepterTmp = itemTmp?[index]
                         }
                     }
-                    
-                    if let dataDic = fileUploadDic {
-                        if let imageUrlString = dataDic[(accepterTmp?.image)!] as? String {
-                            if let imageUrl = URL(string: imageUrlString) {
-                                URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
-                                    if error != nil {
-                                        print("Download Image Task Fail: \(error!.localizedDescription)")
-                                    }
-                                    else if let imageData = data {
-                                        DispatchQueue.main.async {
-                                            destinationController.BillDetailPic.image = UIImage(data: imageData)
-                                        }
-                                    }
-                                }).resume()
-                            }
-                        }
-                    }
+                    destinationController.userProfileTmp = accepterTmp
+                    destinationController.titletmp = tmp.name
+                    destinationController.timetmp = tmp.time
+                    destinationController.rewardtmp = tmp.price
+                    destinationController.regiontmp = tmp.region
+                    destinationController.detailtmp = tmp.detail
+                    BillHelperProfileViewController.requestCase = 0
                     
                     if tmp.status == "working" {
-                        print(tmp.status)
-                        destinationController.working_count = 1
+                        BillHelperProfileViewController.working_count = 1
+                    }
+                    
+                    BillHelperProfileViewController.requestertmp = tmp.requester
+                    BillHelperProfileViewController.keytmp = tmp.key
+                    
+                    if tmp.status == "open" {
+                        destinationController.caseCount = -1
                     }
                     else {
-                        destinationController.working_count = 0
+                        destinationController.caseCount = 1
                     }
-                    
-                    destinationController.helpername = (accepterTmp?.name)!
-                    destinationController.requestertmp = tmp.requester
-                    destinationController.keytmp = tmp.key
-                    
                 }
             }
             break
         case 1:
             if segue.identifier == "DetailSegue" {
                 if let indexPath = TableView.indexPathForSelectedRow {
-                    let destinationController = segue.destination as! BillDetailViewController
+                    let destinationController = segue.destination as! JobDetailViewController
                     let tmp = acceptItems[indexPath.row]
                     var accepterTmp: User?
                     
@@ -259,42 +250,32 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
                             accepterTmp = itemTmp?[index]
                         }
                     }
+                    destinationController.userProfileTmp = accepterTmp
+                    destinationController.titletmp = tmp.name
+                    destinationController.timetmp = tmp.time
+                    destinationController.rewardtmp = tmp.price
+                    destinationController.regiontmp = tmp.region
+                    destinationController.detailtmp = tmp.detail
+                    BillHelperProfileViewController.requestCase = 1
                     
-                    if let dataDic = fileUploadDic {
-                        if let imageUrlString = dataDic[(accepterTmp?.image)!] as? String {
-                            if let imageUrl = URL(string: imageUrlString) {
-                                URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
-                                    if error != nil {
-                                        print("Download Image Task Fail: \(error!.localizedDescription)")
-                                    }
-                                    else if let imageData = data {
-                                        DispatchQueue.main.async {
-                                            destinationController.BillDetailPic.image = UIImage(data: imageData)
-                                        }
-                                    }
-                                }).resume()
-                            }
-                        }
+                    if tmp.status == "working" {
+                        BillHelperProfileViewController.working_count = 1
                     }
                     
-                    if tmp.status == "accepted" {
-                        print(tmp.status)
-                        destinationController.working_count = 1
-                    }
+                    //destinationController.helpername = (accepterTmp?.name)!
+                    BillHelperProfileViewController.requestertmp = tmp.requester
+                    print(BillHelperProfileViewController.requestertmp)
+                    BillHelperProfileViewController.keytmp = tmp.key
                     
                     
-                    destinationController.helpername = (accepterTmp?.name)!
-                    destinationController.requestertmp = tmp.requester
-                    destinationController.keytmp = tmp.key
                     
                 }
             }
-
             break
         case 2:
             if segue.identifier == "DetailSegue" {
                 if let indexPath = TableView.indexPathForSelectedRow {
-                    let destinationController = segue.destination as! BillDetailViewController
+                    let destinationController = segue.destination as! JobDetailViewController
                     let tmp = finishItems[indexPath.row]
                     var accepterTmp: User?
                     
@@ -303,34 +284,22 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
                             accepterTmp = itemTmp?[index]
                         }
                     }
-                    
-                    if let dataDic = fileUploadDic {
-                        if let imageUrlString = dataDic[(accepterTmp?.image)!] as? String {
-                            if let imageUrl = URL(string: imageUrlString) {
-                                URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
-                                    if error != nil {
-                                        print("Download Image Task Fail: \(error!.localizedDescription)")
-                                    }
-                                    else if let imageData = data {
-                                        DispatchQueue.main.async {
-                                            destinationController.BillDetailPic.image = UIImage(data: imageData)
-                                        }
-                                    }
-                                }).resume()
-                            }
-                        }
-                    }
+                    destinationController.userProfileTmp = accepterTmp
+                    destinationController.titletmp = tmp.name
+                    destinationController.timetmp = tmp.time
+                    destinationController.rewardtmp = tmp.price
+                    destinationController.regiontmp = tmp.region
+                    destinationController.detailtmp = tmp.detail
+                    BillHelperProfileViewController.requestCase = 0
                     
                     if tmp.status == "finish" {
-                        print(tmp.status)
-                        destinationController.working_count = 2
+                        BillHelperProfileViewController.working_count = 2
                     }
                     
-                    
-                    destinationController.helpername = (accepterTmp?.name)!
-                    destinationController.requestertmp = tmp.requester
-                    destinationController.keytmp = tmp.key
-                    
+                    //destinationController.helpername = (accepterTmp?.name)!
+                    BillHelperProfileViewController.requestertmp = tmp.requester
+                    BillHelperProfileViewController.keytmp = tmp.key
+                    destinationController.caseCount = 0
                 }
             }
 
