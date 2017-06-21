@@ -79,7 +79,7 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
             // Adding item to the storage
             for item in snapshot.children {
                 let requestItem = RequestItem(snapshot: item as! DataSnapshot)
-                if requestItem.accepter == uid {
+                if requestItem.accepter == uid && requestItem.status != "finish"{
                     tmpEachItems.append(requestItem)
                 }
             }
@@ -225,6 +225,9 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if tmp.status == "working" {
                         BillHelperProfileViewController.working_count = 1
                     }
+                    else {
+                        BillHelperProfileViewController.working_count = 0
+                    }
                     
                     BillHelperProfileViewController.requestertmp = tmp.requester
                     BillHelperProfileViewController.keytmp = tmp.key
@@ -233,7 +236,7 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
                         destinationController.caseCount = -1
                     }
                     else {
-                        destinationController.caseCount = 1
+                        destinationController.caseCount = 0
                     }
                 }
             }
@@ -258,15 +261,16 @@ class BillViewController: UIViewController, UITableViewDelegate, UITableViewData
                     destinationController.detailtmp = tmp.detail
                     BillHelperProfileViewController.requestCase = 1
                     
-                    if tmp.status == "working" {
-                        BillHelperProfileViewController.working_count = 1
+                    if tmp.status == "working" || tmp.status == "accepted" {
+                        BillHelperProfileViewController.working_count = 2
                     }
+
                     
                     //destinationController.helpername = (accepterTmp?.name)!
                     BillHelperProfileViewController.requestertmp = tmp.requester
-                    print(BillHelperProfileViewController.requestertmp)
+                    //print(BillHelperProfileViewController.requestertmp)
                     BillHelperProfileViewController.keytmp = tmp.key
-                    
+                    destinationController.caseCount = 1
                     
                     
                 }
